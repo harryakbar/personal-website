@@ -1,6 +1,6 @@
 ---
 title: "📜 Effective Engineer Book Review"
-excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
+excerpt: "After a long break from my last company because of COVID-19 Pandemic impacts and needs to stay sane, I decided to write this book review. To be honest, I am a person that rarely reads a book. Effective Engineer is the first non-academic-related book that I read as my willingness."
 coverImage: "/assets/blog/hello-world/effective.jpeg"
 date: "2020-03-16T05:35:07.322Z"
 author:

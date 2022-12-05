@@ -7,6 +7,11 @@ import { getAllPosts } from "../lib/api";
 import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 import Post from "../interfaces/post";
+import { Inter } from "@next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+});
 
 type Props = {
   allPosts: Post[];
@@ -16,7 +21,7 @@ export default function Index({ allPosts }: Props) {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
   return (
-    <>
+    <main className={inter.className}>
       <Layout>
         <Head>
           <title>Harry Akbar Ali M</title>
@@ -36,7 +41,7 @@ export default function Index({ allPosts }: Props) {
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>
-    </>
+    </main>
   );
 }
 

@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-neutral-50 border-t border-neutral-200">
       <Container>
-        <div className="py-28 flex flex-col items-center">
+        <div className="py-16 flex flex-col items-center">
           <h3 className="flex text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left">
             Connect with me
           </h3>
@@ -13,6 +13,7 @@ const Footer = () => {
             <a
               href="https://linkedin.com/in/harryakbaram"
               target="__blank"
+              rel="noopener noreferrer"
               className="mx-3 font-bold hover:underline"
             >
               LinkedIn
@@ -20,6 +21,7 @@ const Footer = () => {
             <a
               href="https://github.com/harryakbar"
               target="__blank"
+              rel="noopener noreferrer"
               className="mx-3 font-bold hover:underline"
             >
               GitHub
@@ -27,6 +29,7 @@ const Footer = () => {
             <a
               href="https://leetcode.com/harryakbaram/"
               target="__blank"
+              rel="noopener noreferrer"
               className="mx-3 font-bold hover:underline"
             >
               Leetcode

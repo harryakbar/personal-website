@@ -1,6 +1,6 @@
 ---
 title: "LFIT | Chapter Two: Family"
-excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
+excerpt: "So this chapter has 2 subtitles that related to family, those are “Please Look after Mom” and “Understanding our Fathers”. The mom part is telling us how the Buddhist monks love and taking care their mom. Haemin Sunim, the writer, was sad whenever he came back to Korea because of seeing his mother how much older have become."
 coverImage: "/assets/blog/hello-world/hawkeye.jpeg"
 date: "2020-03-16T05:35:07.322Z"
 author:
