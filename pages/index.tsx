@@ -30,7 +30,7 @@ export default function Index({ allPosts }: Props) {
         </Head>
         <Container>
           <Intro />
-          <div className="flex space-x-4">
+          <div className="flex md:space-x-4 flex-col md:flex-row items-start md:items-top">
             <Weather />
             <Calendar />
           </div>
