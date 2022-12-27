@@ -107,13 +107,16 @@ const Calendar: React.FC = () => {
             {item}
           </button>
         ))}
-        {generateCalendar(currentMonth, currentYear).map((item) => (
+        {generateCalendar(currentMonth, currentYear).map((item, index) => (
           <button
             key="item"
             className={clsx(
               "flex justify-center center p-2",
               currentDate === item &&
-                "border-none rounded-md bg-sky-500 text-neutral-50"
+                "border-none rounded-md bg-sky-500 text-neutral-50",
+              (new Date(currentYear, currentMonth - 1, item).getDay() === 0 ||
+                new Date(currentYear, currentMonth - 1, item).getDay() === 6) &&
+                "text-red-400/100"
             )}
             onClick={handleClickDate(item)}
           >
