@@ -46,7 +46,7 @@ const MonthMapping = {
 const Calendar: React.FC = () => {
   const [currentMonth, setCurrentMonth] = useState(12);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [currentDate, setDate] = useState(20);
+  const [currentDate, setDate] = useState(new Date().getDate());
 
   const handleLeft = () => {
     if (currentMonth - 1 === 0) {
