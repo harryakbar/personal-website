@@ -44,7 +44,7 @@ const MonthMapping = {
 };
 
 const Calendar: React.FC = () => {
-  const [currentMonth, setCurrentMonth] = useState(12);
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentDate, setDate] = useState(new Date().getDate());
 
@@ -113,9 +113,18 @@ const Calendar: React.FC = () => {
             className={clsx(
               "flex justify-center center p-2",
               currentDate === item &&
+                new Date(currentYear, currentMonth - 1, item).getDay() !== 0 &&
+                new Date(currentYear, currentMonth - 1, item).getDay() !== 6 &&
                 "border-none rounded-md bg-sky-500 text-neutral-50",
-              (new Date(currentYear, currentMonth - 1, item).getDay() === 0 ||
-                new Date(currentYear, currentMonth - 1, item).getDay() === 6) &&
+              currentDate === item &&
+                (new Date(currentYear, currentMonth - 1, item).getDay() === 0 ||
+                  new Date(currentYear, currentMonth - 1, item).getDay() ===
+                    6) &&
+                "border-none rounded-md bg-red-400/100 text-white",
+              currentDate !== item &&
+                (new Date(currentYear, currentMonth - 1, item).getDay() === 0 ||
+                  new Date(currentYear, currentMonth - 1, item).getDay() ===
+                    6) &&
                 "text-red-400/100"
             )}
             onClick={handleClickDate(item)}
