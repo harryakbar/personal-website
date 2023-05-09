@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 const generateCalendar = (month, year) => {
   const numOfDaysInMonth = new Date(year, month, 0).getDate();
@@ -46,7 +46,8 @@ const MonthMapping = {
 const Calendar: React.FC = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [currentDate, setDate] = useState(new Date().getDate());
+  const [currentDate, setDate] = useState(null);
+  const dateNow = useMemo(() => new Date(), []);
 
   const handleLeft = () => {
     if (currentMonth - 1 === 0) {
@@ -55,6 +56,7 @@ const Calendar: React.FC = () => {
     } else {
       setCurrentMonth(currentMonth - 1);
     }
+    setDate(null);
   };
 
   const handleRight = () => {
@@ -64,10 +66,13 @@ const Calendar: React.FC = () => {
     } else {
       setCurrentMonth(currentMonth + 1);
     }
+    setDate(null);
   };
 
-  const handleClickDate = (date) => () => {
+  const handleClickDate = (date, currentMonth, currentYear) => () => {
     setDate(date);
+    setCurrentMonth(currentMonth);
+    setCurrentYear(currentYear);
   };
 
   return (
@@ -90,7 +95,7 @@ const Calendar: React.FC = () => {
           <button
             key="item"
             className={clsx("flex justify-center center p-2 text-blue-600/100")}
-            onClick={handleClickDate(item)}
+            disabled
           >
             {item}
           </button>
@@ -102,11 +107,12 @@ const Calendar: React.FC = () => {
           <button
             key="item"
             className={clsx("flex justify-center center p-2 text-gray-400/100")}
-            onClick={handleClickDate(item)}
+            disabled
           >
             {item}
           </button>
         ))}
+
         {generateCalendar(currentMonth, currentYear).map((item, index) => (
           <button
             key="item"
@@ -115,23 +121,28 @@ const Calendar: React.FC = () => {
               currentDate === item &&
                 new Date(currentYear, currentMonth - 1, item).getDay() !== 0 &&
                 new Date(currentYear, currentMonth - 1, item).getDay() !== 6 &&
-                "border-none rounded-md bg-sky-500 text-neutral-50",
+                "border-none rounded-md bg-sky-500 text-neutral-50", // selected weekdays
               currentDate === item &&
                 (new Date(currentYear, currentMonth - 1, item).getDay() === 0 ||
                   new Date(currentYear, currentMonth - 1, item).getDay() ===
                     6) &&
-                "border-none rounded-md bg-red-400/100 text-white",
+                "border-none rounded-md bg-red-400/100 text-white", // selected weekend
               currentDate !== item &&
                 (new Date(currentYear, currentMonth - 1, item).getDay() === 0 ||
                   new Date(currentYear, currentMonth - 1, item).getDay() ===
                     6) &&
-                "text-red-400/100"
+                "text-red-400/100", // unselected weekend
+              dateNow.getDate() === item &&
+                dateNow.getMonth() + 1 === currentMonth &&
+                dateNow.getFullYear() === currentYear &&
+                "border-2 border-black font-bold"
             )}
-            onClick={handleClickDate(item)}
+            onClick={handleClickDate(item, currentMonth, currentYear)}
           >
             {item}
           </button>
         ))}
+
         {generatePlaceholderDatesAfterCurrentMonth(
           currentMonth,
           currentYear
@@ -139,7 +150,7 @@ const Calendar: React.FC = () => {
           <button
             key="item"
             className={clsx("flex justify-center center p-2 text-gray-400/100")}
-            onClick={handleClickDate(item)}
+            disabled
           >
             {item}
           </button>
