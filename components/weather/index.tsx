@@ -29,12 +29,12 @@ const Weather: React.FC = () => {
           placeholder="Input your place name..."
           value={value}
           onChange={handleChange}
-          className="border-2 p-2 mr-4"
+          className="border-2 p-2 my-2 w-full"
         />
         <input
           type="submit"
           value="Search"
-          className="border-none p-2 px-8 bg-sky-500 text-neutral-50 rounded-md cursor-pointer"
+          className="w-full border-none p-2 px-8 bg-sky-500 text-neutral-50 rounded-md cursor-pointer"
         />
       </form>
       {data ? JSON.stringify(data) : null}

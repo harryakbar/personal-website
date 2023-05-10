@@ -9,6 +9,7 @@ import Post from "../interfaces/post";
 import { Inter } from "@next/font/google";
 import Weather from "../components/weather";
 import Calendar from "../components/calendar";
+import CurrencyConverter from "../components/currencyConverter";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,8 +32,11 @@ export default function Index({ allPosts }: Props) {
         <Container>
           <Intro />
           <div className="flex md:space-x-4 flex-col md:flex-row items-start md:items-top">
-            <Weather />
+            <div>
+              <Weather />
+            </div>
             <Calendar />
+            <CurrencyConverter />
           </div>
           <div>
             <article className="prose">
