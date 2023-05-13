@@ -76,7 +76,7 @@ const Calendar: React.FC = () => {
   };
 
   return (
-    <div className="my-8 w-[100%] flex justify-center flex flex-col border-2 rounded-md p-4">
+    <div className="mt-8 mb-4 w-[100%] flex justify-center flex flex-col border-2 rounded-md p-4">
       <div className="flex flex-row justify-center items-center align-center space-between">
         <button className="w-16 h-16 border-2 rounded-md" onClick={handleLeft}>
           {"<"}

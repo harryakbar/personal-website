@@ -19,7 +19,7 @@ const CurrencyConverter: React.FC = () => {
   };
 
   return (
-    <div className="my-8 center w-[100%] flex justify-center flex flex-col border-2 rounded-md p-4">
+    <div className="center w-[100%] flex justify-center flex flex-col border-2 rounded-md p-4">
       <article className="prose">
         <h1>Currency Converter</h1>
       </article>

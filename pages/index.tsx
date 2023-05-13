@@ -31,13 +31,16 @@ export default function Index({ allPosts }: Props) {
         </Head>
         <Container>
           <Intro />
-          <div className="flex md:space-x-4 flex-col md:flex-row items-start md:items-top">
-            <div>
+          <div className="flex md:space-x-4 flex-col md:flex-row items-start md:items-top space-x-0">
+            <div className="flex grow">
               <Weather />
             </div>
-            <Calendar />
-            <CurrencyConverter />
+            <div className="flex flex-col">
+              <Calendar />
+              <CurrencyConverter />
+            </div>
           </div>
+
           <div>
             <article className="prose">
               <h1>Blog</h1>
