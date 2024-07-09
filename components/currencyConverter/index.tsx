@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { getWeatherByCity } from "../../lib/weather";
 
 const CurrencyConverter: React.FC = () => {
   const [value, setValue] = useState("");
@@ -7,10 +6,7 @@ const CurrencyConverter: React.FC = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const fetchData = async () => await getWeatherByCity(value);
-    fetchData().then((data) => {
-      setData(data);
-    });
+    console.log("submitted");
   };
 
   const handleChange = (e) => {
@@ -25,34 +21,40 @@ const CurrencyConverter: React.FC = () => {
       </article>
       <form onSubmit={handleSubmit} className="my-4 w-[100%]">
         <div className="my-2">
-          <select name="currencies" className="border-2 p-2 mr-4">
+          <select name="fromCurrency" className="border-2 p-2 mr-4">
             <option value="usd">USD</option>
             <option value="sgd">SGD</option>
             <option value="idr">IDR</option>
           </select>
           <input
             type="text"
-            value={1}
+            placeholder="Amount"
+            value={value}
             onChange={handleChange}
             className="border-2 p-2 mr-4"
           />
         </div>
 
         <div>
-          <select name="currencies" className="border-2 p-2 mr-4">
+          <select name="toCurrency" className="border-2 p-2 mr-4">
             <option value="usd">USD</option>
             <option value="sgd">SGD</option>
             <option value="idr">IDR</option>
           </select>
           <input
             type="text"
-            value={0}
-            onChange={handleChange}
+            value={data || ""}
+            readOnly
             className="border-2 p-2 mr-4"
           />
         </div>
+        <input
+          type="submit"
+          value="Convert"
+          className="w-full border-none p-2 px-8 bg-sky-500 text-neutral-50 rounded-md cursor-pointer"
+        />
       </form>
-      {data ? JSON.stringify(data) : null}
+      {data ? <div>{JSON.stringify(data)}</div> : null}
     </div>
   );
 };
