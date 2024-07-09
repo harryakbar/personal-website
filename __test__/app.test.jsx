@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import App from "./app.tsx";
+import App from "../pages/app.tsx";
 
 describe("Test", () => {
   it("should true", () => {
