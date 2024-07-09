@@ -6,14 +6,9 @@ import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
 import Post from "../interfaces/post";
-import { Inter } from "@next/font/google";
 import Weather from "../components/weather";
 import Calendar from "../components/calendar";
 import CurrencyConverter from "../components/currencyConverter";
-
-const inter = Inter({
-  subsets: ["latin"],
-});
 
 type Props = {
   allPosts: Post[];
@@ -24,7 +19,7 @@ export default function Index({ allPosts }: Props) {
   const morePosts = allPosts.slice(1);
 
   return (
-    <main className={inter.className}>
+    <main>
       <Layout>
         <Head>
           <title>Harry Akbar Ali M</title>
