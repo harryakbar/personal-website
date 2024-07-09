@@ -16,7 +16,7 @@ const Intro: React.FunctionComponent<{ title?: string }> = ({
         className="rounded-full border-solid border-2 border-black"
       />
       <div className="ml-6">
-        <h1 className="text-6xl md:text-6xl font-bold">{title}</h1>
+        <h1 className="text-base md:text-6xl font-bold">{title}</h1>
         <h6>Software Engineer, Singapore</h6>
       </div>
     </section>
