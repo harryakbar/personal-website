@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-neutral-50 border-t border-neutral-200">
       <Container>
         <div className="flex flex-col">
-          <h3 className="flex text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left">
+          <h3 className="flex text-xl md:text-2xl font-bold tracking-tighter leading-tight text-center lg:text-left">
             Connect with me
           </h3>
           <div>
