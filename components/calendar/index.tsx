@@ -91,9 +91,9 @@ const Calendar: React.FC = () => {
         </button>
       </div>
       <div className="grid grid-cols-7">
-        {Days.map((item) => (
+        {Days.map((item, id) => (
           <button
-            key="item"
+            key={id}
             className={clsx("flex justify-center center p-2 text-blue-600/100")}
             disabled
           >
@@ -103,9 +103,9 @@ const Calendar: React.FC = () => {
         {generatePlaceholderDatesBeforeCurrentMonth(
           currentMonth,
           currentYear
-        ).map((item) => (
+        ).map((item, id) => (
           <button
-            key="item"
+            key={id}
             className={clsx("flex justify-center center p-2 text-gray-400/100")}
             disabled
           >
@@ -115,7 +115,7 @@ const Calendar: React.FC = () => {
 
         {generateCalendar(currentMonth, currentYear).map((item, index) => (
           <button
-            key="item"
+            key={index}
             className={clsx(
               "flex justify-center center p-2",
               currentDate === item &&
@@ -146,9 +146,9 @@ const Calendar: React.FC = () => {
         {generatePlaceholderDatesAfterCurrentMonth(
           currentMonth,
           currentYear
-        ).map((item) => (
+        ).map((item, index) => (
           <button
-            key="item"
+            key={index}
             className={clsx("flex justify-center center p-2 text-gray-400/100")}
             disabled
           >
