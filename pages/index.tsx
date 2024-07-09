@@ -13,7 +13,7 @@ export default function Index() {
       <Container>
         <Intro />
         <h3 className="text-xl font-semibold">About</h3>
-        <article className="text-xs text-justify">
+        <article className="text-sm text-justify">
           I'm a software engineer at NTUC FairPrice. I specialize in UI/UX,
           using tools such as Figma, Node.js, and React.js to deliver
           high-quality and user-friendly web applications.
@@ -31,11 +31,17 @@ export default function Index() {
           participated in several internships.
         </article>
         <h3 className="text-xl font-semibold mt-3">Resume</h3>
-        <Link className="text-blue-700 hover:underline text-xs" href="/app">
+        <Link
+          className="text-blue-700 hover:underline text-sm"
+          href="/assets/Resume_HarryAkbarAliMunir.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+        >
           Download here
         </Link>
         <h3 className="text-xl font-semibold mt-3">Personal Project</h3>
-        <p className="text-xs italic">
+        <p className="text-sm italic">
           These are some of the tools that I built in my free time,{" "}
           <Link className="text-blue-700 hover:underline" href="/app">
             click here
