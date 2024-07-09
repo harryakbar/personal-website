@@ -1,20 +1,19 @@
 import Container from "./container";
-import { EXAMPLE_PATH } from "../lib/constants";
 
 const Footer = () => {
   return (
     <footer className="bg-neutral-50 border-t border-neutral-200">
       <Container>
-        <div className="py-16 flex flex-col items-center">
+        <div className="flex flex-col">
           <h3 className="flex text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left">
             Connect with me
           </h3>
-          <div className="flex justify-center items-center lg:pl-4 lg:w-1/2">
+          <div>
             <a
               href="https://linkedin.com/in/harryakbaram"
               target="__blank"
               rel="noopener noreferrer"
-              className="mx-3 font-bold hover:underline"
+              className="mr-3 font-bold hover:underline"
             >
               LinkedIn
             </a>
