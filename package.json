@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.5",
+    "@vercel/speed-insights": "^1.0.12",
     "classnames": "^2.3.1",
     "clsx": "^1.2.1",
     "date-fns": "^2.28.0",
