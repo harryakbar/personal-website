@@ -3,7 +3,9 @@ import React from "react";
 
 const defaultTitle = "Harry Akbar Ali M.";
 
-const Intro = ({ title = defaultTitle }): React.ReactNode => {
+const Intro: React.FunctionComponent<{ title?: string }> = ({
+  title = defaultTitle,
+}) => {
   return (
     <section className="flex flex-row items-center mb-8">
       <img
