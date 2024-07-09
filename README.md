@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/github/harryakbar/personal-website/graph/badge.svg?token=TLR57M27LA)](https://codecov.io/github/harryakbar/personal-website)
+
 # A statically generated blog example using Next.js, Markdown, and TypeScript
 
 This is the existing [blog-starter](https://github.com/vercel/next.js/tree/canary/examples/blog-starter) plus TypeScript.
