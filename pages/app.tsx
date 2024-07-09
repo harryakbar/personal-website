@@ -14,9 +14,9 @@ type Props = {
   allPosts: Post[];
 };
 
-export default function Index({ allPosts }: Props) {
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
+export default function App({ allPosts }: Props) {
+  const heroPost = allPosts?.[0];
+  const morePosts = allPosts?.slice(1);
 
   return (
     <main>
@@ -50,7 +50,9 @@ export default function Index({ allPosts }: Props) {
                 excerpt={heroPost.excerpt}
               />
             )}
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+            {morePosts && morePosts.length > 0 && (
+              <MoreStories posts={morePosts} />
+            )}
           </div>
         </Container>
       </Layout>
