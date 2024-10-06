@@ -24,8 +24,8 @@
     // Remove Unused Imports
     "unused-imports/no-unused-imports": "error",
     // Other Recommended Rules (see explanation below)
-    "no-console": "warn",
-    "no-unused-vars": "warn",
+    "no-console": "error",
+    "no-unused-vars": "error",
     "react/jsx-key": "error",
     "react/no-unescaped-entities": "error"
   },
