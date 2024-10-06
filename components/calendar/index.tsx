@@ -76,17 +76,17 @@ const Calendar: React.FC = () => {
   };
 
   return (
-    <div className="mt-8 mb-4 w-[100%] flex justify-center flex flex-col border-2 rounded-md p-4">
+    <div className="mt-8 mb-4 w-[100%] flex flex-col border-2 rounded-md p-4 h-[24rem] justify-start">
       <div className="flex flex-row justify-center items-center align-center space-between">
-        <button className="w-16 h-16 border-2 rounded-md" onClick={handleLeft}>
+        <button className="h-16 border-2 rounded-md px-4" onClick={handleLeft}>
           {"<"}
         </button>
         <article className="prose mx-4 flex flex-grow justify-center">
-          <h1 className="text-center">
+          <h1 className="text-center text-2xl">
             {MonthMapping[currentMonth]} {currentYear}
           </h1>
         </article>
-        <button className="w-16 h-16 border-2 rounded-md" onClick={handleRight}>
+        <button className="h-16 border-2 rounded-md px-4" onClick={handleRight}>
           {">"}
         </button>
       </div>
