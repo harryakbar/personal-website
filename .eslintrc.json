@@ -1,0 +1,40 @@
+{
+  "extends": "next/core-web-vitals", // Keep Next.js defaults
+  "plugins": ["import", "unused-imports"], // Add plugins
+  "rules": {
+    // Import Ordering
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin", // Built-in Node.js modules
+          "external", // External dependencies (from package.json)
+          "internal", // Project files
+          "parent", // Parent directory imports
+          "sibling", // Sibling file imports
+          "index" // Index file imports
+        ],
+        "newlines-between": "always", // Enforce newlines between groups
+        "alphabetize": {
+          "order": "asc", // Alphabetical order within groups
+          "caseInsensitive": true // Case-insensitive sorting
+        }
+      }
+    ],
+    // Remove Unused Imports
+    "unused-imports/no-unused-imports": "error",
+    // Other Recommended Rules (see explanation below)
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+    "react/jsx-key": "error",
+    "react/no-unescaped-entities": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.json"],
+      "rules": {
+        "semi": "off"
+      }
+    }
+  ]
+}

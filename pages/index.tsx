@@ -33,7 +33,7 @@ export default function Index() {
         <h3 className="text-xl font-semibold mt-3">Resume</h3>
         <Link
           className="text-blue-700 hover:underline text-sm"
-          href="/assets/Resume_HarryAkbarAliMunir.pdf"
+          href="https://files.harryakbar.dev/Resume_HarryAkbarAliMunir-15.pdf"
           target="_blank"
           rel="noopener noreferrer"
           download

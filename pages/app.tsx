@@ -27,12 +27,12 @@ export default function App({ allPosts }: Props) {
         <Container>
           <Intro title="Tools" />
           <div className="flex md:space-x-4 flex-col md:flex-row items-start md:items-top space-x-0">
-            <div className="flex grow">
-              <Weather />
-            </div>
             <div className="flex flex-col">
-              <Calendar />
+              <Weather />
               <CurrencyConverter />
+            </div>
+            <div className="flex grow">
+              <Calendar />
             </div>
           </div>
 
