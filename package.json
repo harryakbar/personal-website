@@ -5,7 +5,12 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --coverage",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "next lint",
+    "prepare": "husky",
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write .",
+    "precommit": "run-s lint:staged"
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.5",
