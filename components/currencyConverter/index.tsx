@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const CurrencyConverter: React.FC = () => {
   const [value, setValue] = useState("");
-  const [data, setData] = useState(null);
+  const [data] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
