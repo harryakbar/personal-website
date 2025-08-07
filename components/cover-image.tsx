@@ -1,6 +1,8 @@
 import cn from "classnames";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
+import { placeholderImage } from "./intro";
 
 type Props = {
   title: string;
@@ -19,6 +21,8 @@ const CoverImage = ({ title, src, slug }: Props) => {
         })}
         width={300}
         height={630}
+        placeholder="blur"
+        blurDataURL={placeholderImage(300, 630)}
       />
     </div>
   );

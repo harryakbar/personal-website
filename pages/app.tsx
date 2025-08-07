@@ -1,14 +1,22 @@
+import dynamic from "next/dynamic";
+import Head from "next/head";
+
 import Container from "../components/container";
-import MoreStories from "../components/more-stories";
 import HeroPost from "../components/hero-post";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
-import { getAllPosts } from "../lib/api";
-import Head from "next/head";
+import MoreStories from "../components/more-stories";
 import Post from "../interfaces/post";
-import Weather from "../components/weather";
-import Calendar from "../components/calendar";
-import CurrencyConverter from "../components/currencyConverter";
+import { getAllPosts } from "../lib/api";
+
+const Weather = dynamic(() => import("../components/weather"), { ssr: false });
+const Calendar = dynamic(() => import("../components/calendar"), {
+  ssr: false,
+});
+const CurrencyConverter = dynamic(
+  () => import("../components/currencyConverter"),
+  { ssr: false },
+);
 
 type Props = {
   allPosts: Post[];

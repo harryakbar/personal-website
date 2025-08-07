@@ -1,8 +1,9 @@
+import Head from "next/head";
 import Link from "next/link";
+
 import Container from "../components/container";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
-import Head from "next/head";
 
 export default function Index() {
   return (
@@ -14,7 +15,7 @@ export default function Index() {
         <Intro />
         <h3 className="text-xl font-semibold">About</h3>
         <article className="text-sm text-justify">
-          I'm a software engineer at NTUC FairPrice. I specialize in UI/UX,
+          I&apos;m a software engineer at NTUC FairPrice. I specialize in UI/UX,
           using tools such as Figma, Node.js, and React.js to deliver
           high-quality and user-friendly web applications.
           <br />
@@ -26,14 +27,14 @@ export default function Index() {
           provided consultation and guidance to students and ran workshops on
           technical topics.
           <br />
-          <br />I have a bachelor's degree in Computer Science from University
-          of Indonesia, where I also worked as a teaching assistant and
-          participated in several internships.
+          <br />I have a bachelor&apos;s degree in Computer Science from
+          University of Indonesia, where I also worked as a teaching assistant
+          and participated in several internships.
         </article>
         <h3 className="text-xl font-semibold mt-3">Resume</h3>
         <Link
           className="text-blue-700 hover:underline text-sm"
-          href="https://files.harryakbar.dev/Resume_HarryAkbarAliMunir-15.pdf"
+          href="https://files.harryakbar.dev/Resume_HarryAkbarAliMunir-15.pdf" // Confirmed correct link
           target="_blank"
           rel="noopener noreferrer"
           download
