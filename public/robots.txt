@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harryakbar.dev/sitemap.xml
+

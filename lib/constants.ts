@@ -1,4 +1,13 @@
 export const EXAMPLE_PATH = "blog-starter";
 export const CMS_NAME = "Markdown";
-export const HOME_OG_IMAGE_URL =
-  "https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg";
+
+// SEO Constants
+export const SITE_NAME = "Harry Akbar Ali M";
+export const SITE_URL = "https://harryakbar.dev";
+export const SITE_DESCRIPTION =
+  "Harry Akbar Ali M - Software Engineer at NTUC FairPrice. Specializing in UI/UX, React.js, and Node.js. Computer Science graduate from University of Indonesia.";
+export const SITE_KEYWORDS =
+  "Harry Akbar Ali M, software engineer, web developer, React.js, Node.js, UI/UX, NTUC FairPrice, University of Indonesia, frontend developer";
+export const AUTHOR_NAME = "Harry Akbar Ali M";
+export const AUTHOR_EMAIL = ""; // Add your email if you want
+export const HOME_OG_IMAGE_URL = `${SITE_URL}/assets/profile.jpeg`;

@@ -25,7 +25,13 @@
     "unused-imports/no-unused-imports": "error",
     // Other Recommended Rules (see explanation below)
     "no-console": "error",
-    "no-unused-vars": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
     "react/jsx-key": "error",
     "react/no-unescaped-entities": "error"
   },
@@ -35,6 +41,12 @@
       "rules": {
         "semi": "off"
       }
+    },
+    {
+      "files": ["*.md"],
+      "parser": null,
+      "rules": {}
     }
-  ]
+  ],
+  "ignorePatterns": ["*.md"]
 }

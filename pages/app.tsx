@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import Head from "next/head";
 
 import Container from "../components/container";
 import HeroPost from "../components/hero-post";
@@ -8,6 +7,7 @@ import Layout from "../components/layout";
 import MoreStories from "../components/more-stories";
 import Post from "../interfaces/post";
 import { getAllPosts } from "../lib/api";
+import { SITE_URL } from "../lib/constants";
 
 const Weather = dynamic(() => import("../components/weather"), { ssr: false });
 const Calendar = dynamic(() => import("../components/calendar"), {
@@ -28,10 +28,14 @@ export default function App({ allPosts }: Props) {
 
   return (
     <main>
-      <Layout>
-        <Head>
-          <title>Harry Akbar Ali M</title>
-        </Head>
+      <Layout
+        meta={{
+          title: "Tools & Blog",
+          description:
+            "Personal tools and blog posts by Harry Akbar Ali M - Weather, Currency Converter, Calendar, and more.",
+          canonicalUrl: `${SITE_URL}/app`,
+        }}
+      >
         <Container>
           <Intro title="Tools" />
           <div className="flex md:space-x-4 flex-col md:flex-row items-start md:items-top space-x-0">

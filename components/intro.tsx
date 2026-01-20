@@ -31,7 +31,7 @@ const Intro: React.FunctionComponent<{ title?: string }> = ({
   return (
     <section className="flex flex-row items-center mb-8">
       <Image
-        alt="Harry"
+        alt="Harry Akbar Ali M - Software Engineer"
         width={75}
         height={75}
         placeholder="blur"

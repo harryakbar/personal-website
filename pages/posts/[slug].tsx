@@ -1,16 +1,16 @@
-import { useRouter } from "next/router";
 import ErrorPage from "next/error";
+import { useRouter } from "next/router";
+
 import Container from "../../components/container";
-import PostBody from "../../components/post-body";
 import Header from "../../components/header";
-import PostHeader from "../../components/post-header";
 import Layout from "../../components/layout";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
+import PostBody from "../../components/post-body";
+import PostHeader from "../../components/post-header";
 import PostTitle from "../../components/post-title";
-import Head from "next/head";
-import { CMS_NAME } from "../../lib/constants";
-import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
+import { getPostBySlug, getAllPosts } from "../../lib/api";
+import { SITE_NAME, SITE_URL } from "../../lib/constants";
+import markdownToHtml from "../../lib/markdownToHtml";
 
 type Props = {
   post: PostType;
@@ -18,13 +18,21 @@ type Props = {
   preview?: boolean;
 };
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ post, morePosts: _morePosts, preview }: Props) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={preview}>
+    <Layout
+      preview={preview}
+      meta={{
+        title: post.title,
+        description: post.excerpt || `${post.title} by ${SITE_NAME}`,
+        ogImage: post.ogImage?.url,
+        canonicalUrl: `${SITE_URL}/posts/${post.slug}`,
+      }}
+    >
       <Container>
         <Header />
         {router.isFallback ? (
@@ -32,12 +40,6 @@ export default function Post({ post, morePosts, preview }: Props) {
         ) : (
           <>
             <article className="mb-32">
-              <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
@@ -66,6 +68,7 @@ export async function getStaticProps({ params }: Params) {
     "slug",
     "author",
     "content",
+    "excerpt",
     "ogImage",
     "coverImage",
   ]);

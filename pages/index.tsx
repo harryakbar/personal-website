@@ -1,35 +1,42 @@
-import Head from "next/head";
 import Link from "next/link";
 
 import Container from "../components/container";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
+import { SITE_URL, SITE_DESCRIPTION } from "../lib/constants";
 
 export default function Index() {
   return (
-    <Layout>
-      <Head>
-        <title>Harry Akbar Ali M</title>
-      </Head>
+    <Layout
+      meta={{
+        title: "Harry Akbar Ali M",
+        description: SITE_DESCRIPTION,
+        canonicalUrl: SITE_URL,
+      }}
+    >
       <Container>
         <Intro />
-        <h3 className="text-xl font-semibold">About</h3>
+        <h2 className="text-xl font-semibold">About Harry Akbar Ali M</h2>
         <article className="text-sm text-justify">
-          I&apos;m a software engineer at NTUC FairPrice. I specialize in UI/UX,
-          using tools such as Figma, Node.js, and React.js to deliver
-          high-quality and user-friendly web applications.
-          <br />
-          <br />
-          Before joining NTUC FairPrice, I gained valuable experience and skills
-          in web development and project management at several companies,
-          including GudangAda, STOQO, and Shopee. Additionally, I served as an
-          industrial trainer for web frontend development at Glints, where I
-          provided consultation and guidance to students and ran workshops on
-          technical topics.
-          <br />
-          <br />I have a bachelor&apos;s degree in Computer Science from
-          University of Indonesia, where I also worked as a teaching assistant
-          and participated in several internships.
+          <p>
+            I&apos;m <strong>Harry Akbar Ali M</strong>, a software engineer at
+            NTUC FairPrice. I specialize in UI/UX, using tools such as Figma,
+            Node.js, and React.js to deliver high-quality and user-friendly web
+            applications.
+          </p>
+          <p>
+            Before joining NTUC FairPrice, I gained valuable experience and
+            skills in web development and project management at several
+            companies, including GudangAda, STOQO, and Shopee. Additionally, I
+            served as an industrial trainer for web frontend development at
+            Glints, where I provided consultation and guidance to students and
+            ran workshops on technical topics.
+          </p>
+          <p>
+            I have a bachelor&apos;s degree in Computer Science from University
+            of Indonesia, where I also worked as a teaching assistant and
+            participated in several internships.
+          </p>
         </article>
         <h3 className="text-xl font-semibold mt-3">Resume</h3>
         <Link
