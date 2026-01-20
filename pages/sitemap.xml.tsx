@@ -44,7 +44,10 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const posts = getAllPosts(["slug", "date"]);
 
   // Generate the XML sitemap with the posts data
-  const sitemap = generateSitemap(posts);
+  // Type assertion: getAllPosts returns Items[] which has slug and date as string properties
+  const sitemap = generateSitemap(
+    posts as Array<{ slug: string; date?: string }>,
+  );
 
   res.setHeader("Content-Type", "text/xml");
   res.write(sitemap);
