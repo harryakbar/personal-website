@@ -7,7 +7,7 @@ export default function Document() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: AUTHOR_NAME,
-    alternateName: "Harry Akbar Ali M",
+    alternateName: "Harry Akbar Ali Munir",
     url: SITE_URL,
     description: SITE_DESCRIPTION,
     jobTitle: "Software Engineer",

@@ -8,29 +8,41 @@ type Props = {
   title: string;
   src: string;
   slug?: string;
+  priority?: boolean;
 };
 
-const CoverImage = ({ title, src, slug }: Props) => {
+const CoverImage = ({ title, src, slug, priority = false }: Props) => {
   const image = (
-    <div className="flex justify-center">
-      <Image
-        src={src}
-        alt={`Cover Image for ${title}`}
-        className={cn("shadow-sm self-center", {
-          "hover:shadow-lg transition-shadow duration-200": slug,
-        })}
-        width={300}
-        height={630}
-        placeholder="blur"
-        blurDataURL={placeholderImage(300, 630)}
-      />
+    <div
+      className={cn(
+        "relative w-full overflow-hidden rounded-xl bg-neutral-100",
+        {
+          "shadow-sm": true,
+          "hover:shadow-md transition-shadow duration-200": slug,
+        },
+      )}
+    >
+      <div className="relative w-full aspect-[16/9]">
+        <Image
+          src={src}
+          alt={`Cover image for ${title}`}
+          fill
+          priority={priority}
+          quality={85}
+          // Request larger responsive images so covers look crisp on desktop/retina.
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 900px, 1200px"
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL={placeholderImage(1600, 900)}
+        />
+      </div>
     </div>
   );
   return (
     <div className="sm:mx-0">
       {slug ? (
         <Link
-          className="flex justify-center"
+          className="block w-full"
           as={`/posts/${slug}`}
           href="/posts/[slug]"
           aria-label={title}

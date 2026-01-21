@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const defaultTitle = "Harry Akbar Ali M.";
+const defaultTitle = "Harry Akbar Ali Munir.";
 
 const shimmer = (w: number, h: number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -31,7 +31,7 @@ const Intro: React.FunctionComponent<{ title?: string }> = ({
   return (
     <section className="flex flex-row items-center mb-8">
       <Image
-        alt="Harry Akbar Ali M - Software Engineer"
+        alt="Harry Akbar Ali Munir - Software Engineer"
         width={75}
         height={75}
         placeholder="blur"

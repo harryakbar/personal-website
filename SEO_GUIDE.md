@@ -6,7 +6,7 @@ This guide outlines the SEO improvements made to your website and steps to maxim
 
 ### 1. **Meta Tags & Open Graph**
 
-- ✅ Comprehensive meta description including "Harry Akbar Ali M"
+- ✅ Comprehensive meta description including "Harry Akbar Ali Munir"
 - ✅ Open Graph tags for social media sharing
 - ✅ Twitter Card tags
 - ✅ Canonical URLs for all pages
@@ -32,7 +32,7 @@ This guide outlines the SEO improvements made to your website and steps to maxim
 
 ### 4. **Content Optimization**
 
-- ✅ Name "Harry Akbar Ali M" in page titles
+- ✅ Name "Harry Akbar Ali Munir" in page titles
 - ✅ Name in H2 heading on homepage
 - ✅ Name in meta descriptions
 - ✅ Name in structured data
@@ -179,7 +179,7 @@ This guide outlines the SEO improvements made to your website and steps to maxim
 - **Immediate (0-1 week):** Site indexed by Google
 - **Short-term (1-4 weeks):** Appearing in search results
 - **Medium-term (1-3 months):** Ranking improvements
-- **Long-term (3-6 months):** Strong rankings for "Harry Akbar Ali M"
+- **Long-term (3-6 months):** Strong rankings for "Harry Akbar Ali Munir"
 
 ## 📝 Checklist
 
@@ -198,10 +198,10 @@ This guide outlines the SEO improvements made to your website and steps to maxim
 
 Your site should rank for:
 
-- **Primary:** "Harry Akbar Ali M"
-- **Secondary:** "Harry Akbar Ali M software engineer"
-- **Tertiary:** "Harry Akbar Ali M Singapore"
-- **Long-tail:** "Harry Akbar Ali M NTUC FairPrice"
+- **Primary:** "Harry Akbar Ali Munir"
+- **Secondary:** "Harry Akbar Ali Munir software engineer"
+- **Tertiary:** "Harry Akbar Ali Munir Singapore"
+- **Long-tail:** "Harry Akbar Ali Munir NTUC FairPrice"
 
 ## 💡 Pro Tips
 

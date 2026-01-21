@@ -33,7 +33,7 @@ export default function Post({ post, morePosts: _morePosts, preview }: Props) {
         canonicalUrl: `${SITE_URL}/posts/${post.slug}`,
       }}
     >
-      <Container>
+      <Container className="max-w-5xl">
         <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>

@@ -1,13 +1,13 @@
 ---
 title: "LFIT | Chapter Two: Family"
 excerpt: "So this chapter has 2 subtitles that related to family, those are “Please Look after Mom” and “Understanding our Fathers”. The mom part is telling us how the Buddhist monks love and taking care their mom. Haemin Sunim, the writer, was sad whenever he came back to Korea because of seeing his mother how much older have become."
-coverImage: "/assets/blog/hello-world/hawkeye.jpeg"
+coverImage: "/assets/blog/hello-world/cover.jpg"
 date: "2020-03-16T05:35:07.322Z"
 author:
   name: Harry
   picture: "/assets/blog/authors/tim.jpeg"
 ogImage:
-  url: "/assets/blog/hello-world/hawkeye.jpeg"
+  url: "/assets/blog/hello-world/cover.jpg"
 ---
 
 Yo, this is the series of Love For Imperfect Things book review and opinion about chapter of it, and this the chapter 2:

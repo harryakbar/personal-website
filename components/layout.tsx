@@ -16,7 +16,6 @@ type Props = {
 };
 
 const Layout = ({ preview: _preview, children, meta }: Props) => {
-  // preview is kept for future use
   return (
     <div className="flex flex-col min-h-screen">
       <Meta {...meta} />

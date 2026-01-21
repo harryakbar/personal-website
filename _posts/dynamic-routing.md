@@ -1,13 +1,13 @@
 ---
 title: "📜 Effective Engineer Book Review"
 excerpt: "After a long break from my last company because of COVID-19 Pandemic impacts and needs to stay sane, I decided to write this book review. To be honest, I am a person that rarely reads a book. Effective Engineer is the first non-academic-related book that I read as my willingness."
-coverImage: "/assets/blog/hello-world/effective.jpeg"
+coverImage: "/assets/blog/hello-world/cover.jpg"
 date: "2020-03-16T05:35:07.322Z"
 author:
   name: Harry
   picture: "/assets/blog/authors/jj.jpeg"
 ogImage:
-  url: "/assets/blog/hello-world/effective.jpeg"
+  url: "/assets/blog/hello-world/cover.jpg"
 ---
 
 After a long break from my last company because of COVID-19 Pandemic impacts and needs to stay sane, I decided to write this book review. To be honest, I am a person that rarely reads a book. Effective Engineer is the first non-academic-related book that I read as my willingness. So I think this review is not really well written because this is also the first blog that I wrote as my will and not because of the assignment from college. 😂

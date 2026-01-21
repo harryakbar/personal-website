@@ -9,18 +9,18 @@ export default function Index() {
   return (
     <Layout
       meta={{
-        title: "Harry Akbar Ali M",
+        title: "Harry Akbar Ali Munir",
         description: SITE_DESCRIPTION,
         canonicalUrl: SITE_URL,
       }}
     >
       <Container>
         <Intro />
-        <h2 className="text-xl font-semibold">About Harry Akbar Ali M</h2>
+        <h2 className="text-xl font-semibold">About Harry Akbar Ali Munir</h2>
         <article className="text-sm text-justify">
           <p>
-            I&apos;m <strong>Harry Akbar Ali M</strong>, a software engineer at
-            NTUC FairPrice. I specialize in UI/UX, using tools such as Figma,
+            I&apos;m <strong>Harry Akbar Ali Munir</strong>, a software engineer
+            at NTUC FairPrice. I specialize in UI/UX, using tools such as Figma,
             Node.js, and React.js to deliver high-quality and user-friendly web
             applications.
           </p>

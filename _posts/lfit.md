@@ -1,13 +1,13 @@
 ---
 title: "Love For Imperfect Things | Chapter One: Self Care"
 excerpt: "Here we are in the earth as an individual unique human, we also need to treat ourselves first and not always should to praised to be “good” by help all people. It’s okay to be different with other people, so be good to ourselves first, then other people."
-coverImage: "/assets/blog/hello-world/hawkeye.jpeg"
+coverImage: "/assets/blog/hello-world/cover.jpg"
 date: "2020-03-16T05:35:07.322Z"
 author:
   name: Harry
   picture: "/assets/blog/authors/tim.jpeg"
 ogImage:
-  url: "/assets/blog/hello-world/hawkeye.jpeg"
+  url: "/assets/blog/hello-world/cover.jpg"
 ---
 
 Yo, this is the series of Love For Imperfect Things book review and opinion about part of it, and this the part 1:
