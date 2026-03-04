@@ -44,6 +44,13 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Preload above-the-fold profile image for better LCP */}
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/profile.jpeg"
+          type="image/jpeg"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

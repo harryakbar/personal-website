@@ -34,6 +34,7 @@ const Intro: React.FunctionComponent<{ title?: string }> = ({
         alt="Harry Akbar Ali Munir - Software Engineer"
         width={75}
         height={75}
+        priority
         placeholder="blur"
         blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(75, 75))}`}
         src="/assets/profile.jpeg"
