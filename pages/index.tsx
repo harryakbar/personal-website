@@ -131,38 +131,46 @@ export default function Index() {
           <h2 id="links-heading" className="text-xl font-semibold mb-3">
             Links
           </h2>
-          <div className="flex flex-wrap gap-3 text-sm">
-            <Link
-              href="https://files.harryakbar.dev/Resume_HarryAkbarAliMunir-15.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-neutral-900 text-white hover:bg-neutral-700 transition-colors text-xs font-medium"
-            >
-              📄 Resume
-            </Link>
-            <Link
-              href="https://linkedin.com/in/harryakbaram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
-            >
-              LinkedIn
-            </Link>
-            <Link
-              href="https://github.com/harryakbar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
-            >
-              GitHub
-            </Link>
-            <Link
-              href="/app"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
-            >
-              🛠️ Projects & Blog
-            </Link>
-          </div>
+          <ul className="flex flex-wrap gap-3 text-sm">
+            <li>
+              <Link
+                href="https://files.harryakbar.dev/Resume_HarryAkbarAliMunir-15.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-neutral-900 text-white hover:bg-neutral-700 transition-colors text-xs font-medium"
+              >
+                📄 Resume
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://linkedin.com/in/harryakbaram"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
+              >
+                LinkedIn
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://github.com/harryakbar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
+              >
+                GitHub
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/app"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
+              >
+                🛠️ Projects & Blog
+              </Link>
+            </li>
+          </ul>
         </section>
       </Container>
     </Layout>
