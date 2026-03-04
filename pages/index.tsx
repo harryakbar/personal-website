@@ -34,7 +34,7 @@ const EXPERIENCE = [
   },
   {
     company: "Shopee",
-    role: "Frontend Engineer Intern",
+    role: "Frontend Engineer",
     period: "2020",
     location: "Indonesia",
   },
