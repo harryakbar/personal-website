@@ -3,36 +3,64 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Weather from "./index";
 import { getWeatherByCity } from "../../lib/weather";
 
-// Mock the getWeatherByCity function
 jest.mock("../../lib/weather", () => ({
   getWeatherByCity: jest.fn(),
 }));
 
+const mockWeatherData = {
+  name: "Singapore",
+  main: { temp: 303.15, temp_min: 301.48, temp_max: 304.82 },
+};
+
 describe("Weather Component", () => {
-  test("renders the Weather component and searches for weather", async () => {
-    // Mock data to be returned by the getWeatherByCity function
-    const mockWeatherData = { temp: 25, description: "Sunny" };
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("renders input and search button", () => {
+    render(<Weather />);
+    expect(screen.getByText("Weather")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Enter city name...")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /search/i })).toBeInTheDocument();
+  });
+
+  it("shows weather card with temperature on success", async () => {
     (getWeatherByCity as jest.Mock).mockResolvedValue(mockWeatherData);
 
     render(<Weather />);
 
-    // Check if the initial components are rendered
-    expect(screen.getByText("Weather")).toBeInTheDocument();
-    const input = screen.getByPlaceholderText("Input your place name...");
-    const submitButton = screen.getByDisplayValue("Search");
+    fireEvent.change(screen.getByPlaceholderText("Enter city name..."), {
+      target: { value: "Singapore" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /search/i }));
 
-    // Simulate user input and form submission
-    fireEvent.change(input, { target: { value: "Singapore" } });
-    fireEvent.click(submitButton);
-
-    // Wait for the mock data to be displayed
     await waitFor(() => {
-      expect(
-        screen.getByText(JSON.stringify(mockWeatherData))
-      ).toBeInTheDocument();
+      expect(screen.getByText("Singapore")).toBeInTheDocument();
+      expect(screen.getByText(/30\.0°C/)).toBeInTheDocument();
     });
 
-    // Check if the getWeatherByCity function was called with the correct argument
     expect(getWeatherByCity).toHaveBeenCalledWith("Singapore");
+  });
+
+  it("shows error message on failure", async () => {
+    (getWeatherByCity as jest.Mock).mockRejectedValue(new Error("Not found"));
+
+    render(<Weather />);
+
+    fireEvent.change(screen.getByPlaceholderText("Enter city name..."), {
+      target: { value: "InvalidCity" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /search/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText("City not found. Please try again.")
+      ).toBeInTheDocument();
+    });
+  });
+
+  it("disables button when input is empty", () => {
+    render(<Weather />);
+    expect(screen.getByRole("button", { name: /search/i })).toBeDisabled();
   });
 });

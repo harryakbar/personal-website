@@ -1,7 +1,11 @@
-// getWeatherByCity.test.js
-import { getWeatherByCity } from "./weather";
+import { getWeatherByCity, WeatherData } from "./weather";
 
 const BASE_URL = "https://weather-xdpzw23z7q-as.a.run.app/weather/";
+
+const mockWeatherData: WeatherData = {
+  name: "London",
+  main: { temp: 280.15, temp_min: 278.15, temp_max: 282.15 },
+};
 
 describe("getWeatherByCity", () => {
   beforeEach(() => {
@@ -13,33 +17,41 @@ describe("getWeatherByCity", () => {
   });
 
   it("should fetch weather data for a given city", async () => {
-    const query = "London";
-    const mockResponse = {
-      weather: "Sunny",
-      temperature: 25,
-    };
-
-    global.fetch.mockResolvedValue({
-      json: jest.fn().mockResolvedValue(mockResponse),
+    (global.fetch as jest.Mock).mockResolvedValue({
+      ok: true,
+      json: jest.fn().mockResolvedValue(mockWeatherData),
     });
 
-    const result = await getWeatherByCity(query);
-
-    expect(global.fetch).toHaveBeenCalledWith(`${BASE_URL}${query}`);
-    expect(result).toEqual(mockResponse);
-  });
-
-  it("should handle fetch error", async () => {
-    global.fetch.mockRejectedValue(new Error("Fetch failed"));
-
-    console.log = jest.fn(); // Mock console.log to test its output
-
-    await getWeatherByCity("London");
+    const result = await getWeatherByCity("London");
 
     expect(global.fetch).toHaveBeenCalledWith(`${BASE_URL}London`);
-    expect(console.log).toHaveBeenCalledWith(
-      "Unable to fetch -",
-      expect.any(Error)
-    );
+    expect(result).toEqual(mockWeatherData);
+  });
+
+  it("should encode city name in URL", async () => {
+    (global.fetch as jest.Mock).mockResolvedValue({
+      ok: true,
+      json: jest.fn().mockResolvedValue(mockWeatherData),
+    });
+
+    await getWeatherByCity("New York");
+
+    expect(global.fetch).toHaveBeenCalledWith(`${BASE_URL}New%20York`);
+  });
+
+  it("should throw on non-ok response", async () => {
+    (global.fetch as jest.Mock).mockResolvedValue({
+      ok: false,
+      status: 404,
+      json: jest.fn(),
+    });
+
+    await expect(getWeatherByCity("UnknownCity")).rejects.toThrow();
+  });
+
+  it("should throw on fetch error", async () => {
+    (global.fetch as jest.Mock).mockRejectedValue(new Error("Network error"));
+
+    await expect(getWeatherByCity("London")).rejects.toThrow("Network error");
   });
 });
