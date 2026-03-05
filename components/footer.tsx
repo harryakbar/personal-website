@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <a
               href="https://linkedin.com/in/harryakbaram"
-              target="__blank"
+              target="_blank"
               rel="noopener noreferrer"
               className="mr-3 font-bold hover:underline"
             >
@@ -19,7 +19,7 @@ const Footer = () => {
             </a>
             <a
               href="https://github.com/harryakbar"
-              target="__blank"
+              target="_blank"
               rel="noopener noreferrer"
               className="mx-3 font-bold hover:underline"
             >
@@ -27,7 +27,7 @@ const Footer = () => {
             </a>
             <a
               href="https://leetcode.com/harryakbaram/"
-              target="__blank"
+              target="_blank"
               rel="noopener noreferrer"
               className="mx-3 font-bold hover:underline"
             >
