@@ -1,17 +1,20 @@
 import clsx from "clsx";
 import { useMemo, useState } from "react";
 
-const generateCalendar = (month, year) => {
+const generateCalendar = (month: number, year: number): number[] => {
   const numOfDaysInMonth = new Date(year, month, 0).getDate();
 
-  let calendar = [];
+  const calendar: number[] = [];
   for (let i = 0; i < numOfDaysInMonth; i += 1) {
     calendar[i] = i + 1;
   }
   return calendar;
 };
 
-const generatePlaceholderDatesBeforeCurrentMonth = (month, year) => {
+const generatePlaceholderDatesBeforeCurrentMonth = (
+  month: number,
+  year: number,
+): number[] => {
   const startingDayIndex = new Date(year, month - 1, 1).getDay();
   const numOfDaysInMonth = new Date(year, month - 1, 0).getDate();
 
@@ -19,7 +22,10 @@ const generatePlaceholderDatesBeforeCurrentMonth = (month, year) => {
   return indexDays.map((day) => numOfDaysInMonth - day);
 };
 
-const generatePlaceholderDatesAfterCurrentMonth = (month, year) => {
+const generatePlaceholderDatesAfterCurrentMonth = (
+  month: number,
+  year: number,
+): number[] => {
   const numOfDaysInMonth = new Date(year, month, 0).getDate();
   const lastDayIndex = new Date(year, month - 1, numOfDaysInMonth).getDay() + 1;
 
@@ -28,7 +34,7 @@ const generatePlaceholderDatesAfterCurrentMonth = (month, year) => {
 
 const Days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-const MonthMapping = {
+const MonthMapping: Record<number, string> = {
   1: "January",
   2: "February",
   3: "March",
@@ -43,10 +49,15 @@ const MonthMapping = {
   12: "December",
 };
 
+const isWeekend = (day: number, month: number, year: number): boolean => {
+  const d = new Date(year, month - 1, day).getDay();
+  return d === 0 || d === 6;
+};
+
 const Calendar: React.FC = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [currentDate, setDate] = useState(null);
+  const [currentDate, setDate] = useState<number | null>(null);
   const dateNow = useMemo(() => new Date(), []);
 
   const handleLeft = () => {
@@ -69,91 +80,102 @@ const Calendar: React.FC = () => {
     setDate(null);
   };
 
-  const handleClickDate = (date, currentMonth, currentYear) => () => {
+  const handleClickDate = (date: number, month: number, year: number) => () => {
     setDate(date);
-    setCurrentMonth(currentMonth);
-    setCurrentYear(currentYear);
+    setCurrentMonth(month);
+    setCurrentYear(year);
   };
 
   return (
     <div className="mt-8 mb-4 w-[100%] flex flex-col border-2 rounded-md p-4 h-[24rem] justify-start">
       <div className="flex flex-row justify-center items-center align-center space-between">
-        <button className="h-16 border-2 rounded-md px-4" onClick={handleLeft}>
+        <button
+          className="h-16 border-2 rounded-md px-4"
+          onClick={handleLeft}
+          aria-label="Previous month"
+        >
           {"<"}
         </button>
-        <article className="prose mx-4 flex flex-grow justify-center">
-          <h1 className="text-center text-2xl">
-            {MonthMapping[currentMonth]} {currentYear}
-          </h1>
-        </article>
-        <button className="h-16 border-2 rounded-md px-4" onClick={handleRight}>
+        <h2 className="mx-4 flex flex-grow justify-center text-center text-2xl font-semibold">
+          {MonthMapping[currentMonth]} {currentYear}
+        </h2>
+        <button
+          className="h-16 border-2 rounded-md px-4"
+          onClick={handleRight}
+          aria-label="Next month"
+        >
           {">"}
         </button>
       </div>
-      <div className="grid grid-cols-7">
-        {Days.map((item, id) => (
-          <button
-            key={id}
+      <div className="grid grid-cols-7" role="grid" aria-label="Calendar">
+        {Days.map((item) => (
+          <div
+            key={item}
+            role="columnheader"
+            aria-label={item}
             className={clsx("flex justify-center center p-2 text-blue-600/100")}
-            disabled
           >
             {item}
-          </button>
+          </div>
         ))}
         {generatePlaceholderDatesBeforeCurrentMonth(
           currentMonth,
-          currentYear
+          currentYear,
         ).map((item, id) => (
-          <button
-            key={id}
+          <div
+            key={`prev-${id}`}
+            role="gridcell"
+            aria-disabled="true"
             className={clsx("flex justify-center center p-2 text-gray-400/100")}
-            disabled
           >
             {item}
-          </button>
+          </div>
         ))}
 
-        {generateCalendar(currentMonth, currentYear).map((item, index) => (
-          <button
-            key={index}
-            className={clsx(
-              "flex justify-center center p-2",
-              currentDate === item &&
-                new Date(currentYear, currentMonth - 1, item).getDay() !== 0 &&
-                new Date(currentYear, currentMonth - 1, item).getDay() !== 6 &&
-                "border-none rounded-md bg-sky-500 text-neutral-50", // selected weekdays
-              currentDate === item &&
-                (new Date(currentYear, currentMonth - 1, item).getDay() === 0 ||
-                  new Date(currentYear, currentMonth - 1, item).getDay() ===
-                    6) &&
-                "border-none rounded-md bg-red-400/100 text-white", // selected weekend
-              currentDate !== item &&
-                (new Date(currentYear, currentMonth - 1, item).getDay() === 0 ||
-                  new Date(currentYear, currentMonth - 1, item).getDay() ===
-                    6) &&
-                "text-red-400/100", // unselected weekend
-              dateNow.getDate() === item &&
-                dateNow.getMonth() + 1 === currentMonth &&
-                dateNow.getFullYear() === currentYear &&
-                "border-2 border-black font-bold"
-            )}
-            onClick={handleClickDate(item, currentMonth, currentYear)}
-          >
-            {item}
-          </button>
-        ))}
+        {generateCalendar(currentMonth, currentYear).map((item, index) => {
+          const weekend = isWeekend(item, currentMonth, currentYear);
+          const selected = currentDate === item;
+          const isToday =
+            dateNow.getDate() === item &&
+            dateNow.getMonth() + 1 === currentMonth &&
+            dateNow.getFullYear() === currentYear;
+
+          return (
+            <button
+              key={index}
+              aria-label={`${item} ${MonthMapping[currentMonth]} ${currentYear}${isToday ? ", today" : ""}${selected ? ", selected" : ""}`}
+              aria-pressed={selected}
+              aria-current={isToday ? "date" : undefined}
+              className={clsx(
+                "flex justify-center center p-2",
+                selected &&
+                  !weekend &&
+                  "border-none rounded-md bg-sky-500 text-neutral-50",
+                selected &&
+                  weekend &&
+                  "border-none rounded-md bg-red-400/100 text-white",
+                !selected && weekend && "text-red-400/100",
+                isToday && "border-2 border-black font-bold",
+              )}
+              onClick={handleClickDate(item, currentMonth, currentYear)}
+            >
+              {item}
+            </button>
+          );
+        })}
 
         {generatePlaceholderDatesAfterCurrentMonth(
           currentMonth,
-          currentYear
+          currentYear,
         ).map((item, index) => (
-          <button
-            key={index}
+          <div
+            key={`next-${index}`}
+            role="gridcell"
+            aria-disabled="true"
             className={clsx("flex justify-center center p-2 text-gray-400/100")}
-            disabled
           >
             {item}
-          </button>
+          </div>
         ))}
       </div>
     </div>
