@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import Footer from "./footer";
 import Meta from "./meta";
 
@@ -11,7 +13,7 @@ type MetaProps = {
 
 type Props = {
   preview?: boolean;
-  children: React.ReactNode;
+  children: ReactNode;
   meta?: MetaProps;
 };
 
