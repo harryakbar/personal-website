@@ -90,16 +90,19 @@ export default function Index() {
           <h2 id="skills-heading" className="text-xl font-semibold mb-3">
             Tech Stack
           </h2>
-          <div className="flex flex-wrap gap-2">
+          <ul
+            className="flex flex-wrap gap-2"
+            aria-label="Technologies I work with"
+          >
             {TECH_STACK.map((tech) => (
-              <span
+              <li
                 key={tech}
-                className="text-xs px-2.5 py-1 rounded-full bg-neutral-100 text-neutral-700 border border-neutral-200"
+                className="text-xs px-2.5 py-1 rounded-full bg-neutral-100 text-neutral-700 border border-neutral-200 list-none"
               >
                 {tech}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
 
         {/* Experience */}
