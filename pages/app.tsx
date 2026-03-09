@@ -29,15 +29,14 @@ export default function App({ allPosts }: Props) {
   const morePosts = allPosts?.slice(1);
 
   return (
-    <main>
-      <Layout
-        meta={{
-          title: "Tools & Blog",
-          description:
-            "Personal tools and blog posts by Harry Akbar Ali Munir - Weather, Currency Converter, Calendar, and more.",
-          canonicalUrl: `${SITE_URL}/app`,
-        }}
-      >
+    <Layout
+      meta={{
+        title: "Tools & Blog",
+        description:
+          "Personal tools and blog posts by Harry Akbar Ali Munir - Weather, Currency Converter, Calendar, and more.",
+        canonicalUrl: `${SITE_URL}/app`,
+      }}
+    >
         <Container className="max-w-5xl">
           <Intro title="Apps & Blog" />
 
@@ -148,8 +147,7 @@ export default function App({ allPosts }: Props) {
             )}
           </section>
         </Container>
-      </Layout>
-    </main>
+    </Layout>
   );
 }
 
