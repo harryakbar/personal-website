@@ -140,6 +140,7 @@ export default function Index() {
                 href="https://files.harryakbar.dev/Resume_HarryAkbarAliMunir-15.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-neutral-900 text-white hover:bg-neutral-700 transition-colors text-xs font-medium"
               >
                 📄 Resume
