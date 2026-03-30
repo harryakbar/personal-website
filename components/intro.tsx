@@ -36,7 +36,7 @@ const Intro: React.FunctionComponent<{ title?: string }> = ({
         height={75}
         priority
         placeholder="blur"
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(75, 75))}`}
+        blurDataURL={placeholderImage(75, 75)}
         src="/assets/profile.jpeg"
         className="rounded-full border-solid border-2 border-black"
       />
