@@ -113,7 +113,7 @@ export default function Index() {
           <ol className="space-y-3">
             {EXPERIENCE.map((exp) => (
               <li key={exp.company} className="flex items-start gap-3 text-sm">
-                <span className="mt-1 w-1.5 h-1.5 rounded-full bg-neutral-400 shrink-0" />
+                <span aria-hidden="true" className="mt-1 w-1.5 h-1.5 rounded-full bg-neutral-400 shrink-0" />
                 <div>
                   <span className="font-semibold">{exp.company}</span>
                   <span className="text-neutral-500">
