@@ -142,7 +142,7 @@ export default function Index() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-neutral-900 text-white hover:bg-neutral-700 transition-colors text-xs font-medium"
               >
-                📄 Resume
+                📄 Resume<span className="sr-only">(Opens in new tab)</span>
               </Link>
             </li>
             <li>
@@ -152,7 +152,7 @@ export default function Index() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
               >
-                LinkedIn
+                LinkedIn<span className="sr-only">(Opens in new tab)</span>
               </Link>
             </li>
             <li>
@@ -162,7 +162,7 @@ export default function Index() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
               >
-                GitHub
+                GitHub<span className="sr-only">(Opens in new tab)</span>
               </Link>
             </li>
             <li>
