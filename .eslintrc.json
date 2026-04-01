@@ -1,5 +1,5 @@
 {
-  "extends": "next/core-web-vitals", // Keep Next.js defaults
+  "extends": ["next/core-web-vitals", "plugin:jsx-a11y/recommended"], // Keep Next.js defaults
   "plugins": ["import", "unused-imports"], // Add plugins
   "rules": {
     // Import Ordering
