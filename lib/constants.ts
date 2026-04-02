@@ -3,7 +3,7 @@ export const CMS_NAME = "Markdown";
 
 // SEO Constants
 export const SITE_NAME = "Harry Akbar Ali Munir";
-export const SITE_URL = "https://harryakbar.dev";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://harryakbar.dev";
 export const SITE_DESCRIPTION =
   "Harry Akbar Ali Munir — Software Engineer in Singapore specializing in React, Next.js, TypeScript, and Node.js. Currently at NTUC FairPrice Group. CS graduate from University of Indonesia.";
 export const SITE_KEYWORDS =
