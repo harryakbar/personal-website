@@ -90,7 +90,7 @@ export default function Index() {
           <h2 id="skills-heading" className="text-xl font-semibold mb-3">
             Tech Stack
           </h2>
-          <ul
+          <ul role="list"
             className="flex flex-wrap gap-2"
             aria-label="Technologies I work with"
           >
@@ -110,7 +110,7 @@ export default function Index() {
           <h2 id="experience-heading" className="text-xl font-semibold mb-3">
             Experience
           </h2>
-          <ol className="space-y-3">
+          <ol role="list" className="space-y-3">
             {EXPERIENCE.map((exp) => (
               <li key={exp.company} className="flex items-start gap-3 text-sm">
                 <span className="mt-1 w-1.5 h-1.5 rounded-full bg-neutral-400 shrink-0" />
