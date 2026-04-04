@@ -51,6 +51,8 @@ export default function Document() {
           href="/assets/profile.jpeg"
           type="image/jpeg"
         />
+        <meta name="description" content={SITE_DESCRIPTION} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
