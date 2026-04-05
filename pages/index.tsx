@@ -5,6 +5,7 @@ import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { SITE_URL, SITE_DESCRIPTION, SITE_KEYWORDS } from "../lib/constants";
 
+
 const TECH_STACK = [
   "React.js",
   "Next.js",
