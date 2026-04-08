@@ -6,8 +6,6 @@ const CurrencyConverter: React.FC = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // eslint-disable-next-line no-console
-    console.log("submitted");
   };
 
   const handleChange = (e) => {
