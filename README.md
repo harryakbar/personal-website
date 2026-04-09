@@ -1,5 +1,7 @@
 # harryakbar.github.io — Personal Website
 
+<!-- Automated daily improvement target -->
+
 [![codecov](https://codecov.io/github/harryakbar/personal-website/graph/badge.svg?token=TLR57M27LA)](https://codecov.io/github/harryakbar/personal-website)
 
 Personal website and blog for Harry Akbar Ali Munir — Software Engineer at NTUC FairPrice.
