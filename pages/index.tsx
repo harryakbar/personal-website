@@ -19,7 +19,9 @@ const TECH_STACK = [
   "Figma",
 ];
 
-const EXPERIENCE = [
+import { ExperienceItem } from "../interfaces/experience";
+
+const EXPERIENCE: ExperienceItem[] = [
   {
     company: "NTUC FairPrice Group",
     role: "Software Engineer",
