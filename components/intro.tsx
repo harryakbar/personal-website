@@ -42,7 +42,7 @@ const Intro: React.FunctionComponent<{ title?: string }> = ({
       />
       <div className="ml-4">
         <h1 className="text-xl md:text-4xl font-bold">{title}</h1>
-        <p className="text-sm text-neutral-600">Software Engineer, Singapore 🇸🇬</p>
+        <p className="text-sm text-neutral-600 mt-1">Software Engineer, Singapore 🇸🇬</p>
       </div>
     </section>
   );
