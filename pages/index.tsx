@@ -140,6 +140,7 @@ export default function Index() {
                 href="https://files.harryakbar.dev/Resume_HarryAkbarAliMunir-15.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Download Resume (PDF, opens in new tab)"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-neutral-900 text-white hover:bg-neutral-700 transition-colors text-xs font-medium"
               >
                 📄 Resume
@@ -150,6 +151,7 @@ export default function Index() {
                 href="https://linkedin.com/in/harryakbaram"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn profile (opens in new tab)"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
               >
                 LinkedIn
@@ -160,6 +162,7 @@ export default function Index() {
                 href="https://github.com/harryakbar"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub profile (opens in new tab)"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
               >
                 GitHub
