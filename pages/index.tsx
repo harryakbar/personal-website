@@ -137,6 +137,9 @@ export default function Index() {
           <ul className="flex flex-wrap gap-3 text-sm">
             <li>
               <Link
+            <li>
+              {/* ACCESSIBILITY IMPROVEMENT: Consider adding an aria-label for better screen reader experience, e.g., aria-label="View Harry Akbar Ali Munir's Resume" */}
+              <Link
                 href="https://files.harryakbar.dev/Resume_HarryAkbarAliMunir-15.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
