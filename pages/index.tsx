@@ -5,7 +5,7 @@ import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { SITE_URL, SITE_DESCRIPTION, SITE_KEYWORDS } from "../lib/constants";
 
-const TECH_STACK = [
+const TECH_STACK: readonly string[] = [
   "React.js",
   "Next.js",
   "TypeScript",
@@ -19,7 +19,7 @@ const TECH_STACK = [
   "Figma",
 ];
 
-const EXPERIENCE = [
+const EXPERIENCE: readonly { company: string; role: string; period: string; location: string }[] = [
   {
     company: "NTUC FairPrice Group",
     role: "Software Engineer",
