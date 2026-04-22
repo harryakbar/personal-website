@@ -14,6 +14,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="mr-3 font-bold hover:underline"
+              aria-label="My LinkedIn profile"
             >
               LinkedIn
             </a>
@@ -22,6 +23,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="mx-3 font-bold hover:underline"
+              aria-label="My GitHub profile"
             >
               GitHub
             </a>
@@ -30,6 +32,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="mx-3 font-bold hover:underline"
+              aria-label="My Leetcode profile"
             >
               Leetcode
             </a>
