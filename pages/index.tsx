@@ -97,7 +97,7 @@ export default function Index() {
             {TECH_STACK.map((tech) => (
               <li
                 key={tech}
-                className="text-xs px-2.5 py-1 rounded-full bg-neutral-100 text-neutral-700 border border-neutral-200 list-none"
+                className="text-xs px-2.5 py-1 rounded-full bg-neutral-100 text-neutral-700 border border-neutral-200"
               >
                 {tech}
               </li>
