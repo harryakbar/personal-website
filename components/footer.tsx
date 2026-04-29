@@ -13,6 +13,7 @@ const Footer = () => {
               href="https://linkedin.com/in/harryakbaram"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit Harry Akbar's LinkedIn profile"
               className="mr-3 font-bold hover:underline"
             >
               LinkedIn
@@ -21,6 +22,7 @@ const Footer = () => {
               href="https://github.com/harryakbar"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit Harry Akbar's GitHub profile"
               className="mx-3 font-bold hover:underline"
             >
               GitHub
@@ -29,6 +31,7 @@ const Footer = () => {
               href="https://leetcode.com/harryakbaram/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit Harry Akbar's Leetcode profile"
               className="mx-3 font-bold hover:underline"
             >
               Leetcode
