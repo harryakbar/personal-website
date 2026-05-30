@@ -5,10 +5,10 @@ const Footer = () => {
     <footer className="bg-neutral-50 border-t border-neutral-200">
       <Container>
         <div className="flex flex-col">
-          <h3 className="flex mb-4 text-xl md:text-2xl font-bold tracking-tighter leading-tight text-center lg:text-left">
+          <h2 className="flex mb-4 text-xl md:text-2xl font-bold tracking-tighter leading-tight text-center lg:text-left">
             Connect with me
-          </h3>
-          <div>
+          </h2>
+          <nav aria-label="Social links">
             <a
               href="https://linkedin.com/in/harryakbaram"
               target="_blank"
@@ -33,7 +33,7 @@ const Footer = () => {
             >
               Leetcode
             </a>
-          </div>
+          </nav>
         </div>
       </Container>
     </footer>

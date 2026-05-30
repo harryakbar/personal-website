@@ -8,9 +8,9 @@ type Props = {
 const MoreStories = ({ posts }: Props) => {
   return (
     <section>
-      <article className="prose">
-        <h1 className="mb-8 tracking-tighter leading-tight">More Stories</h1>
-      </article>
+      <h2 className="mb-8 tracking-tighter leading-tight text-3xl font-bold">
+        More Stories
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
         {posts.map((post) => (
           <PostPreview
