@@ -117,7 +117,7 @@ export default function Index() {
                 <div>
                   <span className="font-semibold">{exp.company}</span>
                   <span className="text-neutral-500">
-                    {" · "}
+                    &nbsp;&middot; 
                     {exp.role}
                   </span>
                   <div className="text-neutral-400 text-xs mt-0.5">
