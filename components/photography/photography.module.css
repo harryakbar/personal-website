@@ -95,6 +95,20 @@
   --grain: 0.09;
   --plate-filter: sepia(0.2) saturate(1.12) contrast(0.98);
 }
+.root[data-sim="reala-ace"] {
+  --accent: #5f6b78;
+  --paper: #eff0f1;
+  --ink: #1a1c1f;
+  --grain: 0.05;
+  --plate-filter: saturate(1.06) contrast(1.05);
+}
+.root[data-sim="astia"] {
+  --accent: #8a6b72;
+  --paper: #f3eeee;
+  --ink: #1f1a1b;
+  --grain: 0.05;
+  --plate-filter: saturate(1.08) contrast(0.97);
+}
 .root[data-sim="velvia"] {
   --accent: #9c3f3a;
   --paper: #efe9e7;

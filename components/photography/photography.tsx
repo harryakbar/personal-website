@@ -326,7 +326,7 @@ const Photography = () => {
           </span>
           <h1>Photographs</h1>
           <p className={styles.lede}>
-            Four stocks, no edits. Load one in the dial and the whole room
+            Six stocks, no edits. Load one in the dial and the whole room
             follows — frames, accent, grain, contrast.
           </p>
         </div>
@@ -447,7 +447,7 @@ const Photography = () => {
           as shot
         </span>
         <span className={styles.simNote}>
-          {active.note ?? "Four stocks, mixed — as shot, no edits."}
+          {active.note ?? "Six stocks, mixed — as shot, no edits."}
         </span>
       </div>
 
@@ -498,7 +498,7 @@ const Photography = () => {
       </section>
 
       <div className={styles.sectionFoot}>
-        <span>Fujifilm X-M5 · 27mm · no edits</span>
+        <span>Fujifilm X-M5 · XC 15-45mm · no edits</span>
         <Link href={`/photographs/${SERIES.slug}`}>
           {SERIES.title} — {SERIES.frames.length} frames →
         </Link>

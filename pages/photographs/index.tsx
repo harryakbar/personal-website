@@ -10,9 +10,9 @@ export default function PhotographsPage() {
       meta={{
         title: "Photographs",
         description:
-          "Photographs by Harry Akbar Ali Munir — frames from a Fujifilm X-M5, straight out of camera in one of four film simulations: Classic Chrome, Acros, Nostalgic Neg. and Velvia.",
+          "Photographs by Harry Akbar Ali Munir — frames from a Fujifilm X-M5, straight out of camera in one of six film simulations: Classic Chrome, Reala ACE, Astia, Velvia, Nostalgic Neg. and Acros.",
         keywords:
-          "Harry Akbar Ali Munir, photography, Fujifilm X-M5, film simulation, Classic Chrome, Acros, Nostalgic Neg, Velvia, Singapore street photography",
+          "Harry Akbar Ali Munir, photography, Fujifilm X-M5, film simulation, Classic Chrome, Reala ACE, Astia, Velvia, Nostalgic Neg, Acros, Singapore street photography",
         canonicalUrl: `${SITE_URL}/photographs`,
         ogImage: `${SITE_URL}/photographs/DSCF0388.jpg`,
       }}

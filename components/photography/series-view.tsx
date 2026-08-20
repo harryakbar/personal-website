@@ -36,14 +36,14 @@ const SeriesFigure = ({ photo, hero, priority, sizes }: FigureProps) => {
 };
 
 /**
- * "The Glass Hours" — a fixed-stock series view. The page is pinned to Acros
+ * "The Glass Hours" — a fixed-stock series view. The page is pinned to Velvia
  * through data-sim, so the retint control is deliberately absent.
  */
 const SeriesView = () => {
   const frames = seriesPhotos();
 
   return (
-    <div className={`${styles.root} ${styles.series}`} data-sim="acros">
+    <div className={`${styles.root} ${styles.series}`} data-sim="velvia">
       <a className={styles.skip} href="#series-frames">
         Skip to the frames
       </a>
@@ -77,7 +77,7 @@ const SeriesView = () => {
             <span className={styles.seriesFactsLead}>{SERIES.place}</span>
             <span>{SERIES.dates}</span>
             <span>{frames.length} frames</span>
-            <span>Acros</span>
+            <span>Velvia</span>
           </div>
           <p className={styles.seriesIntro}>{SERIES.intro}</p>
         </div>
