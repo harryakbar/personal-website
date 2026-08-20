@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 import Container from "../components/container";
 import HeroPost from "../components/hero-post";
@@ -111,6 +112,24 @@ export default function App({ allPosts }: Props) {
                 </div>
               </a>
             </div>
+          </section>
+
+          {/* Photographs */}
+          <section className="mb-12">
+            <h2 className="text-xl font-semibold mb-3">Photographs</h2>
+            <Link
+              className="block rounded-lg border border-neutral-200 bg-white p-4 hover:border-neutral-300 hover:shadow-sm transition"
+              href="/photographs"
+            >
+              <div className="font-semibold">Photographs</div>
+              <div className="text-sm text-neutral-700">
+                Frames from a Fujifilm X-M5, straight out of camera in one of
+                four film simulations.
+              </div>
+              <div className="text-xs text-neutral-500 mt-1">
+                harryakbar.dev/photographs
+              </div>
+            </Link>
           </section>
 
           {/* Tools section (hidden by default) */}

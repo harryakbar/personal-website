@@ -20,6 +20,18 @@ function generateSitemap(posts: Array<{ slug: string; date?: string }>) {
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>${SITE_URL}/photographs</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/photographs/the-glass-hours</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 ${posts
   .map((post) => {
     const lastmod = post.date

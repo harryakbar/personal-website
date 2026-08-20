@@ -173,6 +173,14 @@ export default function Index() {
                 🛠️ Projects & Blog
               </Link>
             </li>
+            <li>
+              <Link
+                href="/photographs"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
+              >
+                📷 Photographs
+              </Link>
+            </li>
           </ul>
         </section>
       </Container>
