@@ -313,10 +313,6 @@ const Photography = () => {
               </Link>
             </nav>
           </div>
-          <span className={styles.loadedChip}>
-            <span className={styles.lamp} aria-hidden="true" />
-            {active.name} loaded
-          </span>
         </div>
       </header>
 

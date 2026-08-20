@@ -370,31 +370,6 @@
     0 1px 2px rgba(29, 28, 25, 0.14);
 }
 
-.loadedChip {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.34);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-  font: 400 10px/1 var(--font-mono);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #3d382f;
-  white-space: nowrap;
-}
-.lamp {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 22%, transparent);
-  transition:
-    background var(--dur-sweep) var(--ease-sweep),
-    box-shadow var(--dur-sweep) var(--ease-sweep);
-}
-
 /* ── masthead ────────────────────────────────────────────────── */
 
 .masthead {
@@ -1279,8 +1254,7 @@
     padding: 10px 12px;
     gap: 12px;
   }
-  .nav,
-  .loadedChip {
+  .nav {
     display: none;
   }
 
