@@ -1,52 +1,32 @@
-import Link from "next/link";
+import { GetStaticProps } from "next";
+import { useRef } from "react";
 
-import Container from "../components/container";
-import Intro from "../components/intro";
+import Contact from "../components/home/contact";
+import { homeFontClass } from "../components/home/fonts";
+import Hero from "../components/home/hero";
+import styles from "../components/home/home.module.css";
+import { useReveal } from "../components/home/motion";
+import OpenSource from "../components/home/open-source";
+import SiteFooter from "../components/home/site-footer";
+import SiteHeader from "../components/home/site-header";
+import Stack from "../components/home/stack";
+import Timeline from "../components/home/timeline";
+import Writing, { WritingItem } from "../components/home/writing";
 import Layout from "../components/layout";
-import { SITE_URL, SITE_DESCRIPTION, SITE_KEYWORDS } from "../lib/constants";
+import { getAllPosts } from "../lib/api";
+import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_URL } from "../lib/constants";
+import { getGitHubSnapshot, GitHubSnapshot } from "../lib/github";
+import { WRITING, WRITING_ORDER } from "../lib/home";
 
-const TECH_STACK = [
-  "React.js",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Go",
-  "Kotlin",
-  "Tailwind CSS",
-  "PostgreSQL",
-  "Docker",
-  "GitHub Actions",
-  "Figma",
-];
+type Props = {
+  github: GitHubSnapshot;
+  posts: WritingItem[];
+};
 
-const EXPERIENCE = [
-  {
-    company: "NTUC FairPrice Group",
-    role: "Software Engineer",
-    period: "2022 – Present",
-    location: "Singapore 🇸🇬",
-  },
-  {
-    company: "GudangAda",
-    role: "Frontend Engineer",
-    period: "2021 – 2022",
-    location: "Indonesia",
-  },
-  {
-    company: "Shopee",
-    role: "Frontend Engineer",
-    period: "2020",
-    location: "Indonesia",
-  },
-  {
-    company: "STOQO",
-    role: "Frontend Engineer",
-    period: "2019 – 2020",
-    location: "Indonesia",
-  },
-];
+export default function Index({ github, posts }: Props) {
+  const mainRef = useRef<HTMLDivElement>(null);
+  useReveal(mainRef);
 
-export default function Index() {
   return (
     <Layout
       meta={{
@@ -55,135 +35,47 @@ export default function Index() {
         keywords: SITE_KEYWORDS,
         canonicalUrl: SITE_URL,
       }}
+      className={`${styles.root} ${homeFontClass}`}
+      header={<SiteHeader />}
+      footer={<SiteFooter />}
+      mainId="main"
     >
-      <Container>
-        <Intro />
-
-        {/* About */}
-        <section aria-labelledby="about-heading" className="mb-8">
-          <h2 id="about-heading" className="text-xl font-semibold mb-3">
-            About
-          </h2>
-          <div className="text-sm text-neutral-700 space-y-2 leading-relaxed">
-            <p>
-              I&apos;m a <strong>Software Engineer based in Singapore</strong>,
-              currently at <strong>NTUC FairPrice Group</strong> building
-              scalable web applications used by millions of shoppers.
-            </p>
-            <p>
-              I specialize in <strong>frontend engineering</strong> — crafting
-              performant, accessible UIs with React, Next.js, and TypeScript —
-              while growing my backend skills in Go and Node.js. I care about
-              clean code, great developer experience, and products that actually
-              delight users.
-            </p>
-            <p>
-              Previously at GudangAda, Shopee, and STOQO. CS graduate from
-              University of Indonesia, where I also served as a Teaching
-              Assistant and coached students in web development at Glints.
-            </p>
-          </div>
-        </section>
-
-        {/* Tech Stack */}
-        <section aria-labelledby="skills-heading" className="mb-8">
-          <h2 id="skills-heading" className="text-xl font-semibold mb-3">
-            Tech Stack
-          </h2>
-          <ul
-            className="flex flex-wrap gap-2"
-            aria-label="Technologies I work with"
-          >
-            {TECH_STACK.map((tech) => (
-              <li
-                key={tech}
-                className="text-xs px-2.5 py-1 rounded-full bg-neutral-100 text-neutral-700 border border-neutral-200 list-none"
-              >
-                {tech}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Experience */}
-        <section aria-labelledby="experience-heading" className="mb-8">
-          <h2 id="experience-heading" className="text-xl font-semibold mb-3">
-            Experience
-          </h2>
-          <ol className="space-y-3">
-            {EXPERIENCE.map((exp) => (
-              <li key={exp.company} className="flex items-start gap-3 text-sm">
-                <span className="mt-1 w-1.5 h-1.5 rounded-full bg-neutral-400 shrink-0" />
-                <div>
-                  <span className="font-semibold">{exp.company}</span>
-                  <span className="text-neutral-500">
-                    {" · "}
-                    {exp.role}
-                  </span>
-                  <div className="text-neutral-400 text-xs mt-0.5">
-                    {exp.period} · {exp.location}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        {/* Links */}
-        <section aria-labelledby="links-heading" className="mb-8">
-          <h2 id="links-heading" className="text-xl font-semibold mb-3">
-            Links
-          </h2>
-          <ul className="flex flex-wrap gap-3 text-sm">
-            <li>
-              <Link
-                href="https://files.harryakbar.dev/Resume_HarryAkbarAliMunir-15.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-neutral-900 text-white hover:bg-neutral-700 transition-colors text-xs font-medium"
-              >
-                📄 Resume
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="https://linkedin.com/in/harryakbaram"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
-              >
-                LinkedIn
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="https://github.com/harryakbar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
-              >
-                GitHub
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/app"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
-              >
-                🛠️ Projects & Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/photographs"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 text-neutral-700 hover:border-neutral-400 transition-colors text-xs font-medium"
-              >
-                📷 Photographs
-              </Link>
-            </li>
-          </ul>
-        </section>
-      </Container>
+      <div ref={mainRef}>
+        <Hero />
+        <Timeline />
+        <Stack />
+        <OpenSource github={github} />
+        <Writing posts={posts} />
+        <Contact />
+      </div>
     </Layout>
   );
 }
+
+const rank = (slug: string) => {
+  const i = WRITING_ORDER.indexOf(slug);
+  return i === -1 ? WRITING_ORDER.length : i;
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const github = await getGitHubSnapshot();
+
+  const posts: WritingItem[] = getAllPosts(["title", "date", "slug", "excerpt"])
+    .sort((a, b) => b.date.localeCompare(a.date) || rank(a.slug) - rank(b.slug))
+    .map((post) => {
+      const copy = WRITING[post.slug];
+      const year = new Date(post.date).getFullYear();
+      return {
+        slug: post.slug,
+        title: copy?.title ?? post.title,
+        blurb: copy?.blurb ?? post.excerpt ?? "",
+        meta: copy ? `${year} · ${copy.topic}` : String(year),
+      };
+    });
+
+  return {
+    props: { github, posts },
+    // refresh the GitHub snapshot at most hourly
+    revalidate: 3600,
+  };
+};
