@@ -12,6 +12,7 @@ import {
   justify,
   photosFor,
 } from "../../lib/photographs";
+import { useTilt } from "../home/motion";
 
 import Lightbox from "./lightbox";
 import styles from "./photography.module.css";
@@ -59,6 +60,8 @@ const Cell = ({
   const ref = useRef<HTMLElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [revealed, setRevealed] = useState(flat);
+  // Lean toward the mouse, like the homepage portrait.
+  useTilt(ref, buttonRef, { depth: 9, lift: true });
 
   // Rows below the fold reveal on intersect; the first rows never subscribe.
   useEffect(() => {
