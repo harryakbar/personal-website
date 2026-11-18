@@ -25,7 +25,7 @@ const Hero = () => {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const sceneRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  useTilt(sceneRef, cardRef, { baseX: 6, baseY: -9, depth: 10 });
+  useTilt(sceneRef, cardRef, { baseX: 6, baseY: -9, depth: 10, gyro: true });
 
   // roving tabindex: arrow keys move between the two tabs
   const onTabKey = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {

@@ -1,5 +1,12 @@
 import { RefObject, useEffect } from "react";
 
+import {
+  canUseDeviceTilt,
+  requestTiltPermission,
+  tiltNeedsPermission,
+  watchDeviceTilt,
+} from "../../lib/device-tilt";
+
 export const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   typeof window.matchMedia === "function" &&
@@ -13,17 +20,26 @@ type TiltOptions = {
   depth?: number;
   /** Lifted cards get their own perspective, rise 4px and set data-lifted while hovered. */
   lift?: boolean;
+  /** On phones, also lean the card as the phone tilts (gyroscope). */
+  gyro?: boolean;
 };
 
 /**
  * Pointer-follow depth: the card leans toward the pointer while it is over the
- * scene, and settles back to its resting angle when it leaves. No-op under
- * prefers-reduced-motion and on touch-only pointers.
+ * scene, and settles back to its resting angle when it leaves. With `gyro`,
+ * a phone drives the same lean from its gyroscope (iOS asks for motion access
+ * on the first tap on the scene). No-op under prefers-reduced-motion.
  */
 export function useTilt(
   sceneRef: RefObject<HTMLElement>,
   cardRef: RefObject<HTMLElement> = sceneRef,
-  { baseX = 0, baseY = 0, depth = 10, lift = false }: TiltOptions = {},
+  {
+    baseX = 0,
+    baseY = 0,
+    depth = 10,
+    lift = false,
+    gyro = false,
+  }: TiltOptions = {},
 ) {
   useEffect(() => {
     const scene = sceneRef.current;
@@ -59,12 +75,39 @@ export function useTilt(
 
     scene.addEventListener("pointermove", onMove, { passive: true });
     scene.addEventListener("pointerleave", onLeave);
+
+    // Gyroscope: the phone's tilt leans the card, smoothed every frame.
+    let stopGyro: (() => void) | null = null;
+    let askOnTap: (() => void) | null = null;
+    if (gyro && canUseDeviceTilt()) {
+      stopGyro = watchDeviceTilt(
+        (x, y) => {
+          ry = baseY + x * depth * 1.4;
+          rx = baseX - y * depth * 1.4;
+          paint();
+        },
+        // the sensor smooths itself; the CSS ease would only add lag
+        () => (card.style.transition = "none"),
+      );
+      if (tiltNeedsPermission()) {
+        askOnTap = () => {
+          void requestTiltPermission();
+          scene.removeEventListener("click", askOnTap!);
+        };
+        scene.addEventListener("click", askOnTap);
+      }
+    }
+
     return () => {
       if (raf) cancelAnimationFrame(raf);
       scene.removeEventListener("pointermove", onMove);
       scene.removeEventListener("pointerleave", onLeave);
+      stopGyro?.();
+      if (askOnTap) scene.removeEventListener("click", askOnTap);
+      card.style.transition = "";
+      card.style.transform = "";
     };
-  }, [sceneRef, cardRef, baseX, baseY, depth, lift]);
+  }, [sceneRef, cardRef, baseX, baseY, depth, lift, gyro]);
 }
 
 /**
