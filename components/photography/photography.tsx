@@ -15,6 +15,7 @@ import {
 
 import Lightbox from "./lightbox";
 import styles from "./photography.module.css";
+import useDeviceTilt from "./use-device-tilt";
 import useIsomorphicLayoutEffect from "./use-isomorphic-layout-effect";
 
 /** Row target heights, from the design's gallery tokens. */
@@ -146,6 +147,7 @@ const Photography = () => {
   const sweepRef = useRef<HTMLDivElement>(null);
   const stockRef = useRef<HTMLDivElement>(null);
   const lastFocus = useRef<HTMLElement | null>(null);
+  const tilt = useDeviceTilt(galleryRef);
 
   const active = SIM_MAP[sim];
   const visible = useMemo(() => photosFor(sim), [sim]);
@@ -432,6 +434,18 @@ const Photography = () => {
         >
           {simChips}
         </div>
+        {tilt.state !== "unsupported" && (
+          <button
+            type="button"
+            className={styles.tiltToggle}
+            aria-pressed={tilt.state === "on"}
+            aria-label="Move the photographs by tilting your phone"
+            title="Tilt your phone to move the photographs"
+            onClick={tilt.toggle}
+          >
+            Tilt
+          </button>
+        )}
       </div>
 
       <div className={styles.statusline}>
