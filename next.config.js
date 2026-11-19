@@ -16,6 +16,16 @@ module.exports = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/posts/dynamic-routing",
+        destination: "/posts/effective-engineer",
+        permanent: true,
+      },
+    ];
+  },
+
   // Cache static assets aggressively to improve repeat-visit LCP
   async headers() {
     return [

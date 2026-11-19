@@ -1,8 +1,6 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
-type MetricName = "CLS" | "FID" | "LCP" | "INP" | "TTFB";
+type MetricName = "CLS" | "LCP" | "INP" | "TTFB";
 
 interface Metric {
   name: MetricName;
@@ -12,7 +10,6 @@ interface Metric {
 
 const thresholds: Record<MetricName, [number, number]> = {
   LCP: [2500, 4000],
-  FID: [100, 300],
   CLS: [0.1, 0.25],
   INP: [200, 500],
   TTFB: [800, 1800],
@@ -42,12 +39,12 @@ const ratingDot: Record<Metric["rating"], string> = {
   poor: "bg-red-500",
 };
 
-const CORE_VITALS: MetricName[] = ["LCP", "CLS", "FID"];
-const ALL_VITALS: MetricName[] = ["LCP", "CLS", "FID", "INP", "TTFB"];
+const CORE_VITALS: MetricName[] = ["LCP", "CLS", "INP"];
+const ALL_VITALS: MetricName[] = ["LCP", "CLS", "INP", "TTFB"];
 
 export default function WebVitalsPanel() {
   const [metrics, setMetrics] = useState<Partial<Record<MetricName, Metric>>>(
-    {}
+    {},
   );
   const [expanded, setExpanded] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -55,7 +52,7 @@ export default function WebVitalsPanel() {
   useEffect(() => {
     setMounted(true);
 
-    import("web-vitals").then(({ onCLS, onFID, onLCP, onINP, onTTFB }) => {
+    import("web-vitals").then(({ onCLS, onLCP, onINP, onTTFB }) => {
       const report = ({ name, value }: { name: string; value: number }) => {
         const metricName = name as MetricName;
         setMetrics((prev) => ({
@@ -69,7 +66,6 @@ export default function WebVitalsPanel() {
       };
 
       onCLS(report);
-      onFID(report);
       onLCP(report);
       onINP(report);
       onTTFB(report);
@@ -83,8 +79,8 @@ export default function WebVitalsPanel() {
   const overallRating = coreVitals.some((m) => m?.rating === "poor")
     ? "poor"
     : coreVitals.some((m) => m?.rating === "needs-improvement")
-    ? "needs-improvement"
-    : "good";
+      ? "needs-improvement"
+      : "good";
 
   const overallColor: Record<Metric["rating"], string> = {
     good: "bg-green-500",
@@ -98,7 +94,9 @@ export default function WebVitalsPanel() {
       {!expanded && (
         <button
           onClick={() => setExpanded(true)}
+          type="button"
           title="Show Web Vitals"
+          aria-label="Show Web Vitals"
           className={`w-8 h-8 rounded-full ${overallColor[overallRating]} shadow-md hover:scale-110 transition-transform flex items-center justify-center text-white font-bold`}
         >
           ⚡
@@ -145,9 +143,7 @@ export default function WebVitalsPanel() {
                       <span className="text-neutral-400 text-[10px]">★</span>
                     )}
                   </div>
-                  <span>
-                    {metric ? formatValue(name, metric.value) : "—"}
-                  </span>
+                  <span>{metric ? formatValue(name, metric.value) : "—"}</span>
                 </div>
               );
             })}

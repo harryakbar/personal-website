@@ -4,8 +4,8 @@ excerpt: "So this chapter has 2 subtitles that related to family, those are “P
 coverImage: "/assets/blog/hello-world/cover.jpg"
 date: "2020-03-16T05:35:07.322Z"
 author:
-  name: Harry
-  picture: "/assets/blog/authors/tim.jpeg"
+  name: Harry Akbar Ali Munir
+  picture: "/assets/profile.jpeg"
 ogImage:
   url: "/assets/blog/hello-world/cover.jpg"
 ---

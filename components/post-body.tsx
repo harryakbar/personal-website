@@ -1,4 +1,3 @@
-import ReactMarkdown from "react-markdown";
 import markdownStyles from "./markdown-styles.module.css";
 
 type Props = {

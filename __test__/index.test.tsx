@@ -45,6 +45,17 @@ describe("Homepage", () => {
     expect(
       screen.getByRole("heading", { name: "FairPrice Group" }),
     ).toBeInTheDocument();
+  });
+
+  it("uses one job title and the computed years everywhere", () => {
+    render(<Index github={github} posts={posts} years={7} />);
+    expect(
+      screen.getByText("Product Engineer · Singapore · 7+ years"),
+    ).toBeInTheDocument();
+    expect(screen.getByText("7+ yrs shipping")).toBeInTheDocument();
+    expect(screen.getAllByText("Product Engineer").length).toBeGreaterThan(0);
+    expect(screen.queryByText(/Full-stack engineer/i)).toBeNull();
+    expect(screen.queryByText(/^Software engineer · Singapore/i)).toBeNull();
     expect(
       screen.getByRole("link", { name: /Love For Imperfect Things/ }),
     ).toHaveAttribute("href", "/posts/lfit");

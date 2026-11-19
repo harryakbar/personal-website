@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
+
 import matter from "gray-matter";
+
 import { getPostSlugs, getPostBySlug, getAllPosts } from "./api";
 
 jest.mock("fs");
@@ -23,7 +25,7 @@ describe("Post functions", () => {
 
       expect(slugs).toEqual(mockFiles);
       expect(fs.readdirSync).toHaveBeenCalledWith(
-        path.join(process.cwd(), mockPostsDirectory)
+        path.join(process.cwd(), mockPostsDirectory),
       );
     });
   });
@@ -41,7 +43,7 @@ date: 2024-07-01
 ---
 ${mockContent}`);
 
-      (matter as jest.Mock).mockReturnValue({
+      (matter as unknown as jest.Mock).mockReturnValue({
         data: mockData,
         content: mockContent,
       });
@@ -55,7 +57,7 @@ ${mockContent}`);
       });
       expect(fs.readFileSync).toHaveBeenCalledWith(
         path.join(mockPostsDirectory, `${mockSlug}.md`),
-        "utf8"
+        "utf8",
       );
       expect(matter).toHaveBeenCalledWith(`---
 title: Test Post
@@ -69,10 +71,6 @@ ${mockContent}`);
     it("should return all posts with specified fields", () => {
       const mockSlugs = ["post1.md", "post2.md"];
       const mockFields = ["title", "date"];
-      const mockPosts = [
-        { slug: "post1", title: "Post 1", date: "2024-07-01" },
-        { slug: "post2", title: "Post 2", date: "2024-06-01" },
-      ];
 
       (fs.readdirSync as jest.Mock).mockReturnValue(mockSlugs);
       (fs.readFileSync as jest.Mock).mockImplementation((filePath: string) => {
@@ -100,7 +98,7 @@ Content of Post 2`;
         { title: "Test Post", date: "2024-07-01" },
       ]);
       expect(fs.readdirSync).toHaveBeenCalledWith(
-        path.join(process.cwd(), mockPostsDirectory)
+        path.join(process.cwd(), mockPostsDirectory),
       );
       expect(fs.readFileSync).toHaveBeenCalledTimes(mockSlugs.length);
     });

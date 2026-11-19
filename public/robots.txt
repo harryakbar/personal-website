@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://harryakbar.dev/sitemap.xml
+Sitemap: https://www.harryakbar.dev/sitemap.xml
 
 
 
