@@ -22,7 +22,7 @@ const toBase64 = (str: string) =>
     ? Buffer.from(str).toString("base64")
     : window.btoa(str);
 
-export const placeholderImage = (w, h) =>
+export const placeholderImage = (w: number, h: number) =>
   `data:image/svg+xml;base64,${toBase64(shimmer(w, h))}`;
 
 const Intro: React.FunctionComponent<{ title?: string }> = ({
@@ -42,7 +42,9 @@ const Intro: React.FunctionComponent<{ title?: string }> = ({
       />
       <div className="ml-4">
         <h1 className="text-xl md:text-4xl font-bold">{title}</h1>
-        <p className="text-sm text-neutral-600">Software Engineer, Singapore 🇸🇬</p>
+        <p className="text-sm text-neutral-600">
+          Software Engineer, Singapore 🇸🇬
+        </p>
       </div>
     </section>
   );

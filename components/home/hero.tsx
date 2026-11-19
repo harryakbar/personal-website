@@ -1,13 +1,18 @@
 import Image from "next/image";
 import { KeyboardEvent, useRef, useState } from "react";
 
-import { AUTHOR_EMAIL } from "../../lib/constants";
+import {
+  AUTHOR_EMAIL,
+  JOB_TITLE,
+  UNIVERSITY_NAME,
+  yearsShipping,
+} from "../../lib/constants";
 import {
   Audience,
   GITHUB_URL,
   HERO_COPY,
+  getStats,
   RESUME_URL,
-  STATS,
 } from "../../lib/home";
 import { placeholderImage } from "../intro";
 
@@ -20,7 +25,12 @@ const TABS: { id: Audience; label: string }[] = [
   { id: "freelance", label: "For founders & clients" },
 ];
 
-const Hero = () => {
+type HeroProps = {
+  /** Computed at build time so server and client render the same number. */
+  years?: number;
+};
+
+const Hero = ({ years = yearsShipping() }: HeroProps) => {
   const [audience, setAudience] = useState<Audience>("hire");
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const sceneRef = useRef<HTMLDivElement>(null);
@@ -44,7 +54,7 @@ const Hero = () => {
       <div className={styles.heroGrid}>
         <div>
           <p className={styles.kicker}>
-            Software engineer · Singapore · 6+ years
+            {JOB_TITLE} · Singapore · {years}+ years
           </p>
           <h1 id="intro-heading" className={styles.h1}>
             Harry Akbar Ali Munir
@@ -122,23 +132,23 @@ const Hero = () => {
                 className={styles.portrait}
               />
               <div aria-hidden="true" className={styles.chipDark}>
-                6+ yrs shipping
+                {years}+ yrs shipping
               </div>
               <div aria-hidden="true" className={styles.chipLight}>
-                Full-stack engineer
+                {JOB_TITLE}
               </div>
             </div>
           </div>
           <p className={styles.degree}>
             B.S. Computer Science
             <br />
-            Universitas Indonesia, 2019
+            {UNIVERSITY_NAME}, 2019
           </p>
         </div>
       </div>
 
       <dl className={styles.stats}>
-        {STATS.map((stat) => (
+        {getStats(years).map((stat) => (
           <div key={stat.label}>
             <dt>{stat.label}</dt>
             <dd>{stat.value}</dd>

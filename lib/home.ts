@@ -2,6 +2,8 @@
 // Rich text uses a tiny convention: segments wrapped in **double asterisks**
 // render as <strong>, everything else as plain text (see components/home/rich.tsx).
 
+import { COMPANY_NAME, JOB_TITLE } from "./constants";
+
 export const RESUME_URL =
   "https://files.harryakbar.dev/Resume_HarryAkbarAliMunir-15.pdf";
 export const GITHUB_URL = "https://github.com/harryakbar";
@@ -30,8 +32,8 @@ export const HERO_COPY: Record<Audience, { lead: string; body: string }> = {
   },
 };
 
-export const STATS = [
-  { label: "Years shipping production apps", value: "6+" },
+export const getStats = (years: number) => [
+  { label: "Years shipping production apps", value: `${years}+` },
   { label: "Monthly GMV added by one feature", value: "S$100K" },
   { label: "Fewer production type errors", value: "90%" },
 ];
@@ -50,8 +52,8 @@ export type Role = {
 
 export const EXPERIENCE: Role[] = [
   {
-    company: "FairPrice Group",
-    title: "Software Engineer",
+    company: COMPANY_NAME,
+    title: JOB_TITLE,
     period: "Aug 2022 — Present · Singapore",
     // diagram: "order-amendment", — hidden for now; components/home/diagrams/order-amendment.tsx is kept for a later revisit
     bullets: [
@@ -157,7 +159,7 @@ export const WRITING: Record<
   string,
   { title: string; blurb: string; topic: string }
 > = {
-  "dynamic-routing": {
+  "effective-engineer": {
     title: "The Effective Engineer — a review",
     blurb:
       "Leverage as impact divided by time invested, and the habits that compound: CI/CD, one-command setup, automated tests, docs a new contributor can follow.",
@@ -178,4 +180,4 @@ export const WRITING: Record<
 };
 
 /** Display order for posts that share a date (all three do). */
-export const WRITING_ORDER = ["dynamic-routing", "lfit", "lfit-2"];
+export const WRITING_ORDER = ["effective-engineer", "lfit", "lfit-2"];

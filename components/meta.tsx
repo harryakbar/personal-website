@@ -53,10 +53,6 @@ const Meta = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-      <meta
-        name="twitter:creator"
-        content={`@${SITE_NAME.replace(/\s+/g, "")}`}
-      />
 
       {/* Favicons */}
       <link

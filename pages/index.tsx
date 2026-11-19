@@ -14,23 +14,30 @@ import Timeline from "../components/home/timeline";
 import Writing, { WritingItem } from "../components/home/writing";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
-import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_URL } from "../lib/constants";
+import {
+  JOB_TITLE,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_URL,
+  yearsShipping,
+} from "../lib/constants";
 import { getGitHubSnapshot, GitHubSnapshot } from "../lib/github";
 import { WRITING, WRITING_ORDER } from "../lib/home";
 
 type Props = {
   github: GitHubSnapshot;
   posts: WritingItem[];
+  years?: number;
 };
 
-export default function Index({ github, posts }: Props) {
+export default function Index({ github, posts, years }: Props) {
   const mainRef = useRef<HTMLDivElement>(null);
   useReveal(mainRef);
 
   return (
     <Layout
       meta={{
-        title: "Harry Akbar Ali Munir — Software Engineer in Singapore",
+        title: `${JOB_TITLE} in Singapore`,
         description: SITE_DESCRIPTION,
         keywords: SITE_KEYWORDS,
         canonicalUrl: SITE_URL,
@@ -41,7 +48,7 @@ export default function Index({ github, posts }: Props) {
       mainId="main"
     >
       <div ref={mainRef}>
-        <Hero />
+        <Hero years={years} />
         <Timeline />
         <Stack />
         <OpenSource github={github} />
@@ -74,7 +81,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     });
 
   return {
-    props: { github, posts },
+    props: { github, posts, years: yearsShipping() },
     // refresh the GitHub snapshot at most hourly
     revalidate: 3600,
   };

@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# pnpm 11 auto-generates this; Vercel builds with pnpm 9/10, which reject it
+pnpm-workspace.yaml

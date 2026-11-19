@@ -16,8 +16,8 @@ const Stack = () => (
       <div>
         <p className={styles.eyebrow}>Daily drivers</p>
         <p className={styles.driversCopy}>
-          Six languages and frameworks I reach for first — the same six that
-          shipped every case study above.
+          Six languages and frameworks I reach for first, across work and side
+          projects.
         </p>
       </div>
       <div className={styles.cubeScene}>

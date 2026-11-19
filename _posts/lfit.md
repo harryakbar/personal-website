@@ -4,8 +4,8 @@ excerpt: "Here we are in the earth as an individual unique human, we also need t
 coverImage: "/assets/blog/hello-world/cover.jpg"
 date: "2020-03-16T05:35:07.322Z"
 author:
-  name: Harry
-  picture: "/assets/blog/authors/tim.jpeg"
+  name: Harry Akbar Ali Munir
+  picture: "/assets/profile.jpeg"
 ogImage:
   url: "/assets/blog/hello-world/cover.jpg"
 ---

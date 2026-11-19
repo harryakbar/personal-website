@@ -4,8 +4,8 @@ excerpt: "After a long break from my last company because of COVID-19 Pandemic i
 coverImage: "/assets/blog/hello-world/cover.jpg"
 date: "2020-03-16T05:35:07.322Z"
 author:
-  name: Harry
-  picture: "/assets/blog/authors/jj.jpeg"
+  name: Harry Akbar Ali Munir
+  picture: "/assets/profile.jpeg"
 ogImage:
   url: "/assets/blog/hello-world/cover.jpg"
 ---

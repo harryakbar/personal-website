@@ -1,16 +1,25 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
-import { SITE_URL, SITE_DESCRIPTION, AUTHOR_NAME } from "../lib/constants";
+import {
+  AUTHOR_NAME,
+  COMPANY_NAME,
+  HOME_OG_IMAGE_URL,
+  JOB_TITLE,
+  SITE_DESCRIPTION,
+  SITE_URL,
+  UNIVERSITY_NAME,
+} from "../lib/constants";
 
 export default function Document() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: AUTHOR_NAME,
-    alternateName: "Harry Akbar Ali Munir",
+    alternateName: "Harry Akbar",
     url: SITE_URL,
+    image: HOME_OG_IMAGE_URL,
     description: SITE_DESCRIPTION,
-    jobTitle: "Software Engineer",
+    jobTitle: JOB_TITLE,
     address: {
       "@type": "PostalAddress",
       addressCountry: "SG",
@@ -18,21 +27,22 @@ export default function Document() {
     },
     worksFor: {
       "@type": "Organization",
-      name: "NTUC FairPrice",
+      name: COMPANY_NAME,
     },
     alumniOf: {
       "@type": "EducationalOrganization",
-      name: "University of Indonesia",
+      name: UNIVERSITY_NAME,
     },
     knowsAbout: [
-      "React.js",
-      "Node.js",
-      "UI/UX",
-      "Web Development",
-      "Frontend Development",
-      "JavaScript",
+      "React",
+      "Next.js",
       "TypeScript",
-      "Figma",
+      "Node.js",
+      "Go",
+      "PostgreSQL",
+      "Web Performance",
+      "Core Web Vitals",
+      "Accessibility",
     ],
     sameAs: [
       "https://linkedin.com/in/harryakbaram",
@@ -44,13 +54,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Preload above-the-fold profile image for better LCP */}
-        <link
-          rel="preload"
-          as="image"
-          href="/assets/profile.jpeg"
-          type="image/jpeg"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
